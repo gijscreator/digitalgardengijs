@@ -356,7 +356,7 @@ input {
     margin-bottom: 10px;
 }
 
-.sprint-link:visited {
+.sprint-link.active {
     background-color: black;
     color: white;
 }
