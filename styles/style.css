@@ -356,6 +356,11 @@ input {
     margin-bottom: 10px;
 }
 
+.sprint-link:active {
+    background-color: black;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .card-wrapper {
         max-height: 240px;
