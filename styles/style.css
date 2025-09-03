@@ -1,0 +1,129 @@
+/* styling home page */
+h1, a, p, div{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white
+}
+
+html {
+    background: linear-gradient(#0F79D0 0px 50px,  #FFFFFF);
+    background-attachment: fixed;
+}
+
+.top-link {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+
+}
+
+.pagina-main-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.button-container {
+    display: flex;
+    gap: 3%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1500px;
+    min-width: auto;
+    width: 100%;
+}
+
+.top-link {
+    font-size: 0.8rem;
+    width: 100%;
+    min-width: 50px;
+}
+
+.header-title1 {
+    align-self: flex-start;
+    margin-left: 0%;
+    width: 10%;
+    height: auto;
+}
+.header-title {
+    align-self: flex-start;
+    margin-left: 0%;
+    width: 10%;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: 01;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.search-group {
+    position: relative;
+}
+
+.search-group .icon {
+    position: absolute;
+    top: 30%;
+    left: 1rem;
+    transform: translate(-50%);
+    fill: white;
+    pointer-events: none;
+    width: 1rem;
+    height: 1rem;
+
+}
+
+/* mobile styles home */
+
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-link {
+        margin-bottom: 10px;
+        text-align: center;
+        width: 50%;
+    }
+    .menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-title1 {
+    margin-left: 0%;
+    width: 20%;
+    height: auto;
+}
+.header-title {
+    margin-left: 0%;
+    width: 20%;
+    height: auto;
+}
+}
