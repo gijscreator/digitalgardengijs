@@ -342,7 +342,9 @@ input {
 .sprint-title {
     margin: 0px 0px 10px 0px;
 }
-
+.sprint-title {
+    font-size: 1.7rem;
+}
 .sprint-text {
     list-style: none;
     padding: 20px 0px;
