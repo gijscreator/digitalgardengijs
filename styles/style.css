@@ -1,5 +1,8 @@
 /* styling home page */
-h1, a, p, div{
+h1,
+a,
+p,
+div {
     font-family: Arial, Helvetica, sans-serif;
     color: white
 }
@@ -7,8 +10,9 @@ h1, a, p, div{
 .editable-div {
     font-size: 1.6rem;
 }
+
 html {
-    background: linear-gradient(#0F79D0 0px 50px,  #FFFFFF);
+    background: linear-gradient(#0F79D0 0px 50px, #FFFFFF);
     background-attachment: fixed;
 }
 
@@ -27,7 +31,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .button-container {
@@ -56,6 +60,7 @@ html {
     width: 10%;
     height: auto;
 }
+
 .header-title {
     align-self: flex-start;
     margin-left: 0%;
@@ -67,7 +72,8 @@ html {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;;
+    justify-content: space-between;
+    ;
 }
 
 input {
@@ -115,35 +121,46 @@ input {
         flex-direction: column;
         align-items: center;
     }
+
     .search-group {
         width: 100%;
-        max-width: 1000px;
-    } 
-    .search-group .icon {
-      top: 30%;
-      left: 1.1rem;
-      transform: translate(-50%);
+        max-width: none;
     }
+
     .top-link {
         margin-bottom: 10px;
         text-align: center;
         width: 50%;
     }
+
+    .search-group input {
+        width: 100%;
+        padding-left: 2rem;
+        box-sizing: border-box;
+    }
+
+    .search-group .icon {
+        top: 50%;
+        left: .8rem;
+        transform: translateY(-50%);
+    }
+
     .menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    
-}
-.header-title1 {
-    margin-left: 0%;
-    width: 20%;
-    height: auto;
-}
-.header-title {
-    margin-left: 0%;
-    width: 20%;
-    height: auto;
-}
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .header-title1 {
+        margin-left: 0%;
+        width: 20%;
+        height: auto;
+    }
+
+    .header-title {
+        margin-left: 0%;
+        width: 20%;
+        height: auto;
+    }
 }
