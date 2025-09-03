@@ -39,7 +39,7 @@ html {
 
 .button-container {
     display: flex;
-    gap: 3%;
+    gap: 1%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -57,12 +57,9 @@ html {
     justify-content: center;
 }
 
-.header-title2 {
-    display: none;
-}
-
 .header-title,
-.header-title1 {
+.header-title1,
+.header-title2 {
     align-self: flex-start;
     margin-left: 0%;
     width: 10%;
@@ -153,6 +150,7 @@ input {
 }
 
 .toggle {
+    display: none !important;
     position: relative;
     width: 30px;
     padding: 0px 20px;
@@ -241,6 +239,14 @@ input {
         width: 50%;
     }
 
+    .toggle {
+        display: flex !important;
+    }
+
+    .header-title2 {
+        display: none;
+    }
+
     .search-group input {
         width: 100%;
         padding-left: 2rem;
@@ -278,10 +284,6 @@ input {
         padding-right: 10px;
     }
 
-    .header-title2 {
-        display: none;
-    }
-
     .mobile-nav.open {
         display: flex;
         flex-direction: column;
@@ -308,7 +310,7 @@ input {
     border: #ffffff 1px solid;
     border-radius: 10px;
     padding: 40px;
-    min-width: 33%;
+    min-width: 20%;
 }
 
 .sprint-content {
@@ -319,26 +321,31 @@ input {
     justify-content: center;
 }
 
+.todo {
+    display: flex;
+}
+
 .heading-sprint {
     display: flex;
     justify-content: center;
-    margin: 50px 0;
     font-size: 2rem;
-    margin: 0px 0px 10px 0px;
+    margin: 40px 0px 40px 0px;
 }
-.sprint-text, .sprint-title {
+
+.sprint-text,
+.sprint-title {
     margin: 0px 0px 10px 0px;
 }
 
 .sprint-text {
     list-style: none;
     padding: 20px 0px;
-    width: 80%
+    width: 100%
 }
 
 .sprint-link {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: #0F79D0;
     color: white;
     padding: 10px 10px;
@@ -346,15 +353,17 @@ input {
     text-decoration: none;
     margin-bottom: 10px;
 }
+
 @media (max-width: 768px) {
     .card-wrapper {
         max-height: 240px;
         width: 80%;
         max-width: 100%;
     }
+
     .sprint-link {
-    padding: 10px 15px;
-    max-width: 300px;
-    width: 90%;
+        padding: 10px 15px;
+        max-width: 300px;
+        width: 90%;
     }
 }
