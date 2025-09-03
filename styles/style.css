@@ -39,9 +39,12 @@ html {
 }
 
 .top-link {
+    display: flex;
     font-size: 0.8rem;
     width: 100%;
     min-width: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-title1 {
@@ -71,6 +74,7 @@ input {
     border-radius: 10px;
     text-decoration: none;
     color: white;
+    font-size: .7rem;
 }
 
 ::placeholder {
@@ -79,6 +83,7 @@ input {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    font-size:.7rem;
 }
 
 .search-group {
