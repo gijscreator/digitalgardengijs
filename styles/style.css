@@ -275,6 +275,7 @@ input {
         margin-left: 0%;
         width: 20%;
         height: auto;
+        padding-right: 10px;
     }
 
     .header-title2 {
@@ -306,7 +307,8 @@ input {
     flex: 1 1 1;
     border: #ffffff 1px solid;
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px;
+    min-width: 33%;
 }
 
 .sprint-content {
@@ -322,4 +324,37 @@ input {
     justify-content: center;
     margin: 50px 0;
     font-size: 2rem;
+    margin: 0px 0px 10px 0px;
+}
+.sprint-text, .sprint-title {
+    margin: 0px 0px 10px 0px;
+}
+
+.sprint-text {
+    list-style: none;
+    padding: 20px 0px;
+    width: 80%
+}
+
+.sprint-link {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #0F79D0;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+    .card-wrapper {
+        max-height: 240px;
+        width: 80%;
+        max-width: 100%;
+    }
+    .sprint-link {
+    padding: 10px 15px;
+    max-width: 300px;
+    width: 90%;
+    }
 }
