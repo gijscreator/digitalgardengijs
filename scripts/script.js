@@ -1,4 +1,4 @@
-const burger = document.querySelector('.header-title1');
+const burger = document.querySelector('#checkbox');
 const nav = document.querySelector('#site-nav');
 const closeBtn = document.querySelector('.close-btn');
 
