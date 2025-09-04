@@ -347,14 +347,11 @@ input {
 
 /* sprint styling */
 
-.sprint-title {
-    text-align: center;
-}
 .note-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     max-width: 1500px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -429,6 +426,13 @@ input {
     color: white;
 }
 
+.note-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
 @media (max-width: 768px) {
     .card-wrapper {
         max-height: 240px;
