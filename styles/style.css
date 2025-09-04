@@ -437,7 +437,7 @@ input {
     }
     .note-wrapper {
         width: 70%;
-        max-width: 100%;
+        padding: 40px;
     }
 
     .sprint-link {
