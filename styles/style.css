@@ -347,25 +347,44 @@ input {
 
 /* sprint styling */
 
+.sprint-title {
+    text-align: center;
+}
+.note-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1500px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: #ffffff 1px solid;
+    border-radius: 10px;
+    padding: 40px 0px;
+    margin: 20px auto;
+}
 .card-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
     background-color: rgba(255, 255, 255, 0.2);
     flex: 1 1 1;
     border: #ffffff 1px solid;
     border-radius: 10px;
     padding: 40px;
-    min-width: 20%;
 }
 
 .sprint-content {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
     align-self: center;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .todo {
@@ -413,7 +432,11 @@ input {
 @media (max-width: 768px) {
     .card-wrapper {
         max-height: 240px;
-        width: 80%;
+        width: 70%;
+        max-width: 100%;
+    }
+    .note-wrapper {
+        width: 70%;
         max-width: 100%;
     }
 
@@ -421,5 +444,9 @@ input {
         padding: 10px 15px;
         max-width: 300px;
         width: 90%;
+    }
+    .sprint-content {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
