@@ -16,7 +16,9 @@ html {
 h3 {
     font-size: 2rem;
 }
-
+body {
+    margin: 0 4%;
+}
 /* styling home page */
 .editable-div {
     font-size: 1.6rem;
@@ -36,7 +38,7 @@ h3 {
     width: 70%;
     min-width: 50px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .top-link.active {
@@ -357,7 +359,7 @@ input {
     background-color: rgba(255, 255, 255, 0.2);
     border: #ffffff 1px solid;
     border-radius: 10px;
-    padding: 40px 0px;
+    padding: 20px 40px;
     margin: 20px auto;
 }
 .card-wrapper {
@@ -371,7 +373,7 @@ input {
     flex: 1 1 1;
     border: #ffffff 1px solid;
     border-radius: 10px;
-    padding: 40px;
+    padding: 40px 40px 0px 40px;
 }
 
 .sprint-content {
@@ -435,7 +437,7 @@ input {
 }
 @media (max-width: 768px) {
     .card-wrapper {
-        max-height: 240px;
+        height: auto;
         width: 70%;
         max-width: 100%;
     }
