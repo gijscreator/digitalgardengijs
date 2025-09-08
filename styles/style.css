@@ -4,7 +4,8 @@ h2,
 h3,
 a,
 p,
-div {
+article,
+section {
     font-family: Arial, Helvetica, sans-serif;
     color: white
 }
@@ -410,6 +411,7 @@ input {
     list-style: none;
     padding: 20px 0px;
     width: 100%
+
 }
 
 .sprint-link {
