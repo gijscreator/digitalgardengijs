@@ -437,6 +437,13 @@ input {
     justify-content: flex-start;
     width: 100%;
 }
+.checkbox {
+    font-size: 1rem;
+}
+
+.applewatch {
+    display: none;
+}
 @media (max-width: 768px) {
     .card-wrapper {
         height: auto;
@@ -459,6 +466,12 @@ input {
     }
 }
 
-.checkbox {
-    font-size: 1rem;
+@media (max-width: 4cm) {
+    .hiddenwatch {
+        display: none;
+    }
+    .applewatch {
+        display: flex;
+    }
 }
+
