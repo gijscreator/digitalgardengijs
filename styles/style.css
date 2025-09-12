@@ -20,10 +20,8 @@ h3 {
 body {
     margin: 0 4%;
 }
+
 /* styling home page */
-.editable-div {
-    font-size: 1.6rem;
-}
 
 .top-link {
     display: flex;
