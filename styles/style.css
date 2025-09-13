@@ -426,6 +426,11 @@ input {
 .applewatch {
     display: none;
 }
+
+
+.aantekeningenh1 {
+    text-align: center;
+}
 @media (max-width: 768px) {
     .card-wrapper {
         height: auto;
