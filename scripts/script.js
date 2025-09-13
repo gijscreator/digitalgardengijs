@@ -7,7 +7,6 @@ const toggleMenu = function() {
 };
 
 burger.addEventListener('click', toggleMenu);
-closeBtn.addEventListener('click', toggleMenu);
 
 document.querySelectorAll('.mobile-nav .top-link').forEach(link => {
   link.addEventListener('click', () => {
