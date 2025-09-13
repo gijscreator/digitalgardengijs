@@ -17,8 +17,8 @@ html {
 h3 {
     font-size: 2rem;
 }
-body {
-    margin: 0 4%;
+body  {
+    margin: 0px 4%;
 }
 
 /* styling home page */
@@ -140,7 +140,6 @@ input {
     transition: opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
-    animation: mobileNavClose 0.4s ease;
 }
 
 .overlay {
@@ -156,9 +155,10 @@ input {
 }
 
 .mobile-nav.close {
-    display: flex;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    animation: mobileNavClose 0.4s ease forwards;
 }
 
 .button-containermenu {
@@ -319,29 +319,14 @@ input {
         z-index: 1001;
     }
 
-    .mobile-nav.open {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
-        width: 100%;
-        padding: 10px 0;
-        border-radius: 0 0 0px 20px;
-        animation: mobileNavOpen 0.4s ease;
-        visibility: visible;
+.mobile-nav.open {
+    opacity: 1;
+    visibility: visible;
+    justify-content: start;
+    pointer-events: auto;
+    animation: mobileNavOpen 0.4s ease forwards;
+}
 
-    }
-
-    @keyframes mobileNavOpen {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 }
 
 /* end of mobile styles home */
@@ -430,7 +415,6 @@ input {
 
 .note-info {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;

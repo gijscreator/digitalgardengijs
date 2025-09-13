@@ -1,3 +1,20 @@
-html {
-    background-color: black;
+/* General styling */
+body {
+    margin: 0;
 }
+.waveblue {
+    width: 100%;
+}
+
+.w2 {
+    transform: rotateX(180deg);
+}
+.playgroundh1 {
+    text-align: center;
+    margin: 40px 0px;
+}
+
+p {
+    text-align: center;
+}
+/* General styling end */
