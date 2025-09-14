@@ -1,4 +1,16 @@
 /* algemene styling */
+* {
+  margin: 0;
+  padding-inline-start: 0px !important;
+  list-style-type: none !important;
+}
+
+a {
+  display: block;   /* or inline-block / flex, depending on needs */
+  width: 100%;
+  text-align: center;
+}
+
 h1,
 h2,
 h3,
@@ -55,7 +67,6 @@ body  {
 
 .button-container {
     display: flex;
-    gap: 1%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -64,6 +75,10 @@ body  {
     width: 100%;
 }
 
+.buttons-languages {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .header-title,
 .header-title1,
 .header-title2 {
@@ -346,6 +361,7 @@ input {
     padding: 20px 40px;
     margin: 20px auto;
 }
+
 .card-wrapper {
     display: flex;
     flex-direction: column;
@@ -427,10 +443,64 @@ input {
     display: none;
 }
 
+/* aantekeningen pagina */
 
 .aantekeningenh1 {
     text-align: center;
 }
+
+.buttons-languages {
+    padding-inline-start: 0px;
+}
+.list-item {
+    display: grid;
+    justify-self: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.html {
+    background-color: #E44D26;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.css {
+    background-color: #663399;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.js {
+    border-radius: 10px;
+    color: black;
+    background-color: #FFFF00;
+    padding: 10px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
     .card-wrapper {
         height: auto;
