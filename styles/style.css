@@ -366,6 +366,7 @@ a {
     text-decoration: none;
 }
 .button-list {
+    font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;
