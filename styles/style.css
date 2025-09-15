@@ -366,36 +366,47 @@ a {
     text-decoration: none;
 }
 .button-list {
-    font-weight: 800;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10%;
+    gap: 5%;
 }
 
 .html {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
-    width: 120px;
+    width: 30%;
     background-color: #E44D26;
-    text-align: center;
     padding: 10px 0px;
+    height: 30%;
+    box-shadow: #E44D26 2px 7px 10px;
 }
 
 .css {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
-    width: 120px;
+    width: 30%;
     background-color: #663399;
-    text-align: center;
     padding: 10px 0px;
+    height: 30%;
+    box-shadow: #663399 2px 7px 10px;
 }
 
 .js {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
-    color: black;
-    width: 120px;
+    width: 30%;
     background-color: #FFFF00;
-    text-align: center;
     padding: 10px 0px;
+    height: 30%;
+    box-shadow: #FFFF00 2px 7px 10px;
 }
 
 .buttons-languages {
@@ -403,6 +414,22 @@ a {
     align-self: center;
 }
 
+.img {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
+
+.javascriptt {
+    color: black;
+}
+
+
+
+/* aantekeningen pagina styling */
+
+
+/* mobile styles */
 @media (max-width: 768px) {
     .card-wrapper {
         height: auto;
@@ -425,22 +452,7 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
-}
 
-@media (max-width: 400px) {
-    .hiddenwatch {
-        display: none;
-    }
-
-    .applewatch {
-        display: flex;
-    }
-}
-
-
-/* mobile styles home */
-
-@media (max-width: 768px) {
     .button-container {
         display: none;
     }
@@ -511,4 +523,11 @@ a {
     }
 }
 
-/* end of mobile styles home */
+/* end of mobile styles */
+
+
+@media (min-width: 768px) {
+    .buttons-languages {
+        display: none;
+    }
+}
