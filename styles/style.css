@@ -300,6 +300,16 @@ input {
     margin: 0 auto;
 }
 
+.sprint-shortcuts {
+    display: flex;
+    gap: 20px;
+    align-self: center;
+    justify-content: space-between;
+    max-width: 1580px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .todovisite {
     display: flex;
 }
@@ -489,7 +499,7 @@ input {
         width: 90%;
     }
 
-    .sprint-content {
+    .sprint-shortcuts {
         flex-wrap: wrap;
         justify-content: center;
     }
