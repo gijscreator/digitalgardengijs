@@ -459,19 +459,14 @@ input {
 }
 
 .sprint-content {
-  display: none; /* start hidden */
+  display: none; 
   margin-top: 10px;
 }
 
 .note-wrapper.open .sprint-content {
   display: grid;
 }
-/* expiriment css */
 
-
-
-
-/* expiriment css  */
 /* aantekeningen pagina styling */
 
 
