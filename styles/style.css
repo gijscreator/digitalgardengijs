@@ -12,7 +12,8 @@ p,
 article,
 section {
     font-family: Arial, Helvetica, sans-serif;
-    color: white
+    color: white;
+    margin: 0;
 }
 
 
@@ -360,9 +361,10 @@ input {
 
 .aantekeningenh1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-a {
+.button-list a {
     text-decoration: none;
 }
 .button-list {
@@ -381,7 +383,7 @@ a {
     width: 30%;
     background-color: #E44D26;
     padding: 10px 0px;
-    height: 30%;
+    height: 50%;
     box-shadow: #E44D26 2px 7px 10px;
 }
 
@@ -393,7 +395,7 @@ a {
     width: 30%;
     background-color: #663399;
     padding: 10px 0px;
-    height: 30%;
+    height: 50%;
     box-shadow: #663399 2px 7px 10px;
 }
 
@@ -405,7 +407,7 @@ a {
     width: 30%;
     background-color: #FFFF00;
     padding: 10px 0px;
-    height: 30%;
+    height: 50%;
     box-shadow: #FFFF00 2px 7px 10px;
 }
 
@@ -424,8 +426,52 @@ a {
     color: black;
 }
 
+.htmlwrapper {
+    margin-top: 15%;
+}
+.tekst {
+    display: grid;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #E44D26;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 0px 50px 50px 50px;
+}
+
+.htmlbox {
+    margin-bottom: 20px;
+}
 
 
+/* week css */
+
+.toggle-btn {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sprint-content {
+  display: none; /* start hidden */
+  margin-top: 10px;
+}
+
+.note-wrapper.open .sprint-content {
+  display: grid;
+}
+/* expiriment css */
+
+
+
+
+/* expiriment css  */
 /* aantekeningen pagina styling */
 
 
