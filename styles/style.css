@@ -461,18 +461,45 @@ input {
 .htmlwrapper {
     margin-top: 15%;
 }
+.csswrapper {
+    margin-top: 15%;
+}
+.jswrapper {
+    margin-top: 15%;
+}
 .tekst {
     display: grid;
     justify-content: center;
     align-items: flex-end;
-    background-color: #E44D26;
     width: 200px;
     height: 200px;
     margin: 0 auto;
     border-radius: 0px 50px 50px 50px;
 }
 
+.html1 {
+    background-color: #E44D26;
+}
+
+.css1 {
+    background-color: #663399;
+}
+
+.js1 {
+    background-color: #FFFF00;
+    color: black;
+}
+
 .htmlbox {
+    margin-bottom: 20px;
+}
+
+.cssbox {
+    margin-bottom: 20px;
+}
+
+.jsbox {
+    color: black;
     margin-bottom: 20px;
 }
 
