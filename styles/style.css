@@ -476,7 +476,20 @@ input {
     margin-bottom: 20px;
 }
 
+.aantekeningimg {
+    border-radius: 25px;
+    display: flex;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    overflow: hidden;
+}
 
+.carousel {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 /* week css */
 
 .toggle-btn {
