@@ -395,6 +395,26 @@ input {
     padding: 10px 0px;
     height: 50%;
     box-shadow: #E44D26 2px 7px 10px;
+    transition: ease-out .5s;
+}
+
+
+.html:active {
+    translate: 0 20%;
+    box-shadow: #E44D26 0px 0px 0px;
+    transition: ease-out .1s;
+}
+
+.css:active {
+    translate: 0 20%;
+    box-shadow: #663399 0px 0px 0px;
+    transition: ease-out .1s;
+}
+
+.js:active {
+    translate: 0 20%;
+    box-shadow: #FFFF00 0px 0px 0px;
+    transition: ease-out .1s;
 }
 
 .css {
@@ -407,6 +427,7 @@ input {
     padding: 10px 0px;
     height: 50%;
     box-shadow: #663399 2px 7px 10px;
+    transition: ease-out .5s;
 }
 
 .js {
@@ -419,6 +440,7 @@ input {
     padding: 10px 0px;
     height: 50%; 
     box-shadow: #FFFF00 2px 7px 10px;
+    transition: ease-out .5s;
 }
 
 .buttons-languages {
