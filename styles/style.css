@@ -16,7 +16,6 @@ section {
     margin: 0;
 }
 
-
 html {
     background-color: #72b5cd;
 }
@@ -29,7 +28,7 @@ body {
     margin: 0px 4%;
 }
 
-/* styling home page */
+/* styling header */
 
 .top-link {
     display: flex;
@@ -53,7 +52,7 @@ body {
     color: black;
 }
 
-.pagina-main-body {
+.pagina-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,6 +125,8 @@ input {
     height: 1rem;
 }
 
+/* styling end */
+
 /* mobile menu styling */
 
 .mobile-nav {
@@ -182,7 +183,18 @@ input {
     border-radius: 20px;
 }
 
-/* hamburger menu styling */
+.menucontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 75%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+/* hamburger selector styling */
 
 #checkbox {
     display: none;
@@ -247,18 +259,7 @@ input {
     transform: rotate(180deg);
 }
 
-/* end of hamburger menu */
-
-.menucontainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 75%;
-    max-width: 1000px;
-    margin-top: 20px;
-}
+/* end of hamburger selector styling */
 
 /* sprint styling */
 
@@ -299,21 +300,6 @@ input {
     width: 100%;
     margin: 0 auto;
 }
-
-.sprint-shortcuts {
-    display: flex;
-    gap: 20px;
-    align-self: center;
-    justify-content: space-between;
-    max-width: 1580px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.todovisite {
-    display: flex;
-}
-
 .heading-sprint {
     display: flex;
     justify-content: center;
@@ -358,16 +344,9 @@ input {
     justify-content: flex-start;
     width: 100%;
 }
+/* sprint styling end */
 
-.checkbox {
-    font-size: 1rem;
-}
-
-.applewatch {
-    display: none;
-}
-
-/* aantekeningen pagina */
+/* aantekeningen styling */
 
 .aantekeningenh1 {
     text-align: center;
@@ -385,6 +364,9 @@ input {
     gap: 5%;
 }
 
+
+/* html blok */
+
 .html {
     display: flex;
     justify-content: space-around;
@@ -398,6 +380,17 @@ input {
     transition: ease-out .5s;
 }
 
+.htmlwrapper {
+    margin-top: 15%;
+}
+
+.html1 {
+    background-color: #E44D26;
+}
+
+.htmlbox {
+    margin-bottom: 20px;
+}
 
 .html:active {
     translate: 0 20%;
@@ -405,17 +398,9 @@ input {
     transition: ease-out .1s;
 }
 
-.css:active {
-    translate: 0 20%;
-    box-shadow: #663399 0px 0px 0px;
-    transition: ease-out .1s;
-}
+/* html einde */
 
-.js:active {
-    translate: 0 20%;
-    box-shadow: #FFFF00 0px 0px 0px;
-    transition: ease-out .1s;
-}
+/* css blok */
 
 .css {
     display: flex;
@@ -430,6 +415,29 @@ input {
     transition: ease-out .5s;
 }
 
+.csswrapper {
+    margin-top: 15%;
+}
+
+.css1 {
+    background-color: #663399;
+}
+
+.cssbox {
+    margin-bottom: 20px;
+}
+
+.css:active {
+    translate: 0 20%;
+    box-shadow: #663399 0px 0px 0px;
+    transition: ease-out .1s;
+}
+
+/* css einde */
+
+
+/* js blok */
+
 .js {
     display: flex;
     justify-content: space-around;
@@ -443,6 +451,27 @@ input {
     transition: ease-out .5s;
 }
 
+.js1 {
+    background-color: #FFFF00;
+}
+
+.jswrapper {
+    margin-top: 15%;
+}
+
+.jsbox {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.js:active {
+    translate: 0 20%;
+    box-shadow: #FFFF00 0px 0px 0px;
+    transition: ease-out .1s;
+}
+
+/* js einde */
+
 .buttons-languages {
     display: grid;
     align-self: center;
@@ -454,19 +483,6 @@ input {
     display: inline-block;
 }
 
-.javascriptt {
-    color: black;
-}
-
-.htmlwrapper {
-    margin-top: 15%;
-}
-.csswrapper {
-    margin-top: 15%;
-}
-.jswrapper {
-    margin-top: 15%;
-}
 .tekst {
     display: grid;
     justify-content: center;
@@ -479,31 +495,7 @@ input {
     border-radius: 0px 50px 50px 50px;
 }
 
-.html1 {
-    background-color: #E44D26;
-}
 
-.css1 {
-    background-color: #663399;
-}
-
-.js1 {
-    background-color: #FFFF00;
-    color: black;
-}
-
-.htmlbox {
-    margin-bottom: 20px;
-}
-
-.cssbox {
-    margin-bottom: 20px;
-}
-
-.jsbox {
-    color: black;
-    margin-bottom: 20px;
-}
 
 .aantekeningimg {
     border-radius: 25px;
@@ -548,6 +540,17 @@ input {
 
 /* aantekeningen pagina styling */
 
+/* to do pagina styling */
+
+.checkbox {
+    font-size: 1rem;
+}
+
+.todovisite {
+    display: flex;
+}
+
+/* to do pagina styling end*/
 
 /* mobile styles */
 @media (max-width: 768px) {
