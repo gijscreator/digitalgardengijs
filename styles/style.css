@@ -263,6 +263,14 @@ input {
 
 /* sprint styling */
 
+.sprint-shortcuts {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
 .note-wrapper {
     display: flex;
     flex-direction: column;
