@@ -24,10 +24,6 @@ h3 {
     font-size: 2rem;
 }
 
-body {
-    margin: 0px 4%;
-}
-
 /* styling header */
 
 .top-link {
@@ -519,11 +515,78 @@ input {
 }
 
 .carousel {
-    display: grid;
-    grid-auto-flow: column;
-    margin-top: 5%;
+      position: relative;
+      width: 400px;
+      overflow: hidden;
+      margin: auto;
+      border-radius: 12px;
+      margin-top: 20px;
 
 }
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  display: flex;
+  min-width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.slide img {
+  width: 100%;
+  display: grid;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  cursor: pointer;
+  border:0;
+  width: 44px;
+  height:44px;
+  border-radius: 50%;
+
+}
+
+.prev-html{ 
+    left: 10px; 
+    background: url(../assets/icon.svg) no-repeat center;
+    background-color:#E44D26;
+}
+
+.prev-css{ 
+    left: 10px; 
+    background: url(../assets/icon.svg) no-repeat center;
+    background-color:#663399;
+}
+
+.prev-js{ 
+    left: 10px; 
+    background: url(../assets/iconblack.svg) no-repeat center;
+    background-color:#FFFF00;
+}
+
+.next-html { 
+    right: 10px; 
+    background: url(../assets/icon3.svg) no-repeat center;
+    background-color:#E44D26;
+}
+.next-css { 
+    right: 10px; 
+    background: url(../assets/icon3.svg) no-repeat center;
+    background-color:#663399;
+}
+.next-js { 
+    right: 10px; 
+    background: url(../assets/blackicon.svg) no-repeat center;
+    background-color:#FFFF00;
+}
+
 
 .aantekening1, .aantekening2, .aantekening3{
     display: grid;
