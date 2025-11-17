@@ -1,4 +1,16 @@
 /* algemene styling */
+@font-face {
+    font-family: 'Myfont';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Bariol Thin'),
+         url('../assets/PressStart2P-Regular.ttf') format('opentype');
+}
+
+html {
+    font-family: 'Myfont';
+}
+
 
 ul {
     all: unset;
@@ -11,7 +23,7 @@ a,
 p,
 article,
 section {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Myfont';
     color: white;
     margin: 0;
 }
