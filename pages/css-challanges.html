@@ -1,0 +1,1210 @@
+<!----------------------- general styling ----------------------->
+
+<style>
+    html {
+        width: 100vw;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap
+    }
+</style>
+
+
+<!----------------------- Css challange over knoppen ----------------------->
+
+<h2>Css challange over knoppen en formulieren</h2>
+<header>
+	<h1>Buttons</h1>
+	<p>Nb. Vergeet deze Pen niet te Fork-en, zodat je met je eigen kopie aan de slag gaat (knopje rechtsonder).</p>
+</header>
+  
+<main>
+	
+	<ul>
+		<li aria-label="basic-button" piste="blauw">
+			<button>hopla!</button>
+		</li>
+
+
+		<li aria-label="drukknop" piste="rood">
+			<button>hopla!</button>
+		</li>
+
+
+		<li aria-label="regenboog" piste="zwart">
+			<button>hopla!</button>
+		</li>
+	</ul>
+	
+</main>
+
+
+<style>
+@layer basis {
+	
+	:root {
+		--wit:white;
+		--lichtgrijs:silver;
+		--grijs:darkgray;
+		--donkergrijs:dimgray;
+		--zwart:black;
+
+		--roze:deeppink;
+		--rood:crimson;
+		--oranje:darkorange;
+		--geel:gold;
+		--groen:limegreen;
+		--blauw:dodgerblue;
+		--paars:purple;	
+	}
+
+	li {
+		color-scheme:light;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap:1em;
+		padding:1em;
+	}
+	
+	button, input {
+		font-family:initial;
+	}
+
+}
+
+/*******************/
+/* 1. basic-button */
+/*******************/
+
+[aria-label="basic-button"] button {
+	appearance:none;
+	padding:.5em 1em;
+	border:none;
+	border-radius:2em;
+	background-color:var(--blauw);
+    font-family:initial; 
+    font-size: 1rem;
+    color: white;
+	
+	
+	&:hover {
+	cursor: pointer;
+
+
+	}
+
+
+	&:focus-visible {
+		outline-color: black;
+		outline-style: solid;
+		outline-width: 20px;
+		outline-offset: 1rem;
+
+
+
+	}
+
+
+	&:active {
+
+		background-color: dodgerblue;
+		outline: none;
+		translate: 0px 2px;
+
+	}
+}
+
+/***************/
+/* 2. drukknop */
+/***************/
+
+[aria-label="drukknop"] button {
+	appearance:none;
+	padding:.5em 1em;
+	border:none;
+	border-radius:2em;
+	background-color:var(--blauw);
+	
+	font:inherit;
+	color:var(--wit);
+	
+	cursor:pointer;
+	
+	
+	&:hover {
+		box-shadow: 0px 5px black;
+		translate: 0px -5px;
+
+	}
+
+
+	&:focus-visible {
+		box-shadow: 5px 5px black;
+        outline: 5px black;
+
+	}
+
+
+	&:active {
+		box-shadow: none;
+        outline: 5px black;
+        translate: 0px 5px;
+        background-color: deeppink;
+
+	}
+}
+
+
+/****************/
+/* 3. regenboog */
+/****************/
+
+
+@keyframes regenboog {
+	100% {
+		background-position:right top;
+	}
+}
+
+
+[aria-label="regenboog"] button {
+
+	appearance: none;
+	padding:.5em 1em;
+	background-image:
+		linear-gradient(
+			45deg in oklch longer hue,
+			var(--oranje),
+			var(--oranje),
+			var(--oranje)
+		);
+	background-size:200% 200%;
+	background-position:left bottom;
+	border:none;
+	border-radius:2em;
+	
+	font:inherit;
+	color:var(--wit);
+	
+	outline:none;
+	cursor:pointer;
+	
+	animation:regenboog 2s infinite linear paused;
+	
+	
+	&:hover,
+	&:focus-visible{
+		animation-play-state:running;
+	}
+
+
+	&:active {
+		box-shadow:inset 0 .5em 0 var(--zwart);
+		padding:1em 1em 0em;
+	}
+}
+
+</style>
+
+ <!----------------------- States tekstenvelden en co ---------------------->
+
+ <header>
+	<h1>Tekstvelden en co</h1>
+	<p>Nb. Vergeet deze Pen niet te Fork-en, zodat je met je eigen kopie aan de slag gaat (knopje rechtsonder).</p>
+</header>
+  
+<main>
+
+	<ul>
+		<li aria-label="border" piste="blauw">
+			<label>
+				email <input type="email" placeholder="een @ en zo..." required>
+			</label>
+		</li>
+
+
+		<li aria-label="icons" piste="rood">
+			<label>
+				telefoon
+				<input type="tel" placeholder="">		
+			</label>
+			<label>
+				quilty pleasure
+				<input type="text" placeholder="">
+			</label>
+		</li>
+
+
+		<li aria-label="groei" piste="rood">
+			<label>
+				groei
+				<input type="search" placeholder="zoeken...">
+			</label>
+		</li>
+
+
+		<li aria-label="onder protest" piste="zwart">
+			<label>
+				<input type="text" placeholder="">
+				<span>onder protest</span>		
+			</label>
+		</li>
+	</ul>
+	
+</main>
+
+<style>
+    @layer basis {
+	
+	:root {
+		--wit:white;
+		--lichtgrijs:silver;
+		--grijs:darkgray;
+		--donkergrijs:dimgray;
+		--zwart:black;
+
+		--roze:deeppink;
+		--rood:crimson;
+		--oranje:darkorange;
+		--geel:gold;
+		--groen:limegreen;
+		--blauw:dodgerblue;
+		--paars:purple;	
+	}
+
+	li {
+		color-scheme:light;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap:1em;
+		padding:1em;
+	}
+	
+	button, input {
+		font-family:initial;
+	}
+}
+
+
+
+/*************/
+/* 1. border */
+/*************/
+
+[aria-label="border"] label {
+	width:100%;
+}
+
+
+[aria-label="border"] input {
+	width:100%;
+	padding:.5em;
+	border-radius:.33em;
+    appearance: none;
+    font-weight: 400;
+    font-size: 1rem;
+    color: black;
+    caret-color: dodgerblue;
+    transition: all 1s ease;
+    border: 2px solid;
+	
+	
+	&::placeholder {
+		color: black;
+		font-style: italic;
+	}
+
+
+	&::selection {
+        border-radius:.33em;
+		color: white;
+		background-color: dodgerblue;
+        border: none
+
+
+	}
+
+
+	&:focus {
+		border: 2px solid dodgerblue;
+		border-radius: 0rem;
+		outline: none;
+
+
+	}
+
+
+	&:valid {
+
+		border-color: green;
+
+
+	}
+
+
+	&:user-invalid {
+
+		border-color: red;
+
+
+	}
+}
+
+
+
+
+
+/*************/
+/* 2. icons */
+/*************/
+
+[aria-label="icons"] label {
+	width:100%;
+}
+
+
+[aria-label="icons"] input {
+	appearance:none;
+	
+	width:100%;
+	font:inherit;
+	padding:.5em;
+	border-radius:.33em;
+	
+	border:solid .1em var(--grijs);
+	caret-color:var(--blauw);
+}
+
+
+// beide inputs
+[aria-label="icons"] input {
+	/* JOUW CODE HIER */
+	// hints:
+	// background-size --> 1.5em breed
+	// background-repeat
+	// background-position
+	// padding-left
+	
+	
+	// telefoonnummer
+	&[type="tel"] {
+		/* JOUW CODE HIER */
+		// hints:
+		// background-image
+		// telefoon: https://assets.codepen.io/274456/icon-telephone.png
+
+
+	}
+
+
+	// quilty pleasure
+	&[type="text"] {
+		/* JOUW CODE HIER */
+		// hints:
+		// background-image
+		// hartje: https://assets.codepen.io/274456/icon-heart.png
+
+
+	}
+}
+
+
+
+
+
+/************/
+/* 3. groei */
+/************/
+
+[aria-label="groei"] label {
+	width:100%;
+	display:grid;
+}
+
+[aria-label="groei"] input {
+	appearance:none;
+	
+	font:inherit;
+	padding-block:.5em; /* boven en onder */
+	border-radius:.33em;
+
+	border:solid .1em var(--zwart);
+	caret-color:var(--blauw);
+	
+	/* JOUW CODE HIER */
+	// hints:
+	// width
+	// padding-left
+	// background-dingen
+	// loepje: https://assets.codepen.io/274456/ui-icon-search-black.svg
+	// transition
+	
+	
+	&::placeholder {
+		color:var(--zwart);
+		font-style:italic;
+	}
+
+
+	&::selection {
+		color:var(--wit);
+		background-color:var(--blauw);
+	}
+
+
+	&:focus,
+	&:not(:placeholder-shown) {
+		/* JOUW CODE HIER */
+		// hints:
+		// width
+		// background-size
+		// background-position
+		// transition
+
+
+	}
+}
+
+
+
+
+
+/********************/
+/* 4. onder protest */
+/********************/
+
+
+// hints:
+// grid op het label
+// input en de span in dezelfde cel (op elkaar)
+// de span met translate naar boven (en kleiner)
+
+[aria-label="onder protest"] label {
+	width:100%;
+	display:grid;
+	align-items:center;
+}
+
+[aria-label="onder protest"] input {
+	appearance:none;
+	width:100%;
+	font:inherit;
+	padding:.5em;
+	border-radius:.33em;
+	border:solid .1em var(--grijs);
+	caret-color:var(--blauw);
+	
+	/* JOUW CODE HIER */
+	
+	
+}
+
+[aria-label="onder protest"] span {
+	background-color:var(--wit);
+
+	/* JOUW CODE HIER */
+	
+	
+}
+
+[aria-label="onder protest"] input:focus + span,
+[aria-label="onder protest"] input:not(:placeholder-shown) + span {
+	/* JOUW CODE HIER */
+	
+	
+}
+</style>
+
+
+<!----------------------- Checkboxes en radio buttons ----------------------->
+
+<header>
+	<h1>Checkboxes en radio buttons</h1>
+	<p>Nb. Vergeet deze Pen niet te Fork-en, zodat je met je eigen kopie aan de slag gaat (knopje rechtsonder).</p>
+</header>
+  
+<main>
+	
+	<ul>
+		<li aria-label="oranje" piste="blauw">
+			<label>
+				<input type="checkbox"> oranje
+			</label>
+		</li>
+
+
+		<li aria-label="checked" piste="rood">
+			<label>
+				<input type="checkbox"> checked
+			</label>
+		</li>
+
+
+		<li aria-label="squircle" piste="rood">
+			<label>
+				<input type="checkbox"> squircle
+			</label>
+		</li>
+
+
+		<li aria-label="switch" piste="rood">
+			<label>
+				<input type="checkbox"> switch
+			</label>
+		</li>
+
+
+		<li aria-label="omdat het kan" piste="zwart">
+			<label>
+				<input type="checkbox"> omdat het kan
+			</label>
+		</li>
+	</ul>
+	
+</main>
+
+<style>
+    @layer basis {
+	
+	:root {
+		--wit:white;
+		--lichtgrijs:silver;
+		--grijs:darkgray;
+		--donkergrijs:dimgray;
+		--zwart:black;
+
+		--roze:deeppink;
+		--rood:crimson;
+		--oranje:darkorange;
+		--geel:gold;
+		--groen:limegreen;
+		--blauw:dodgerblue;
+		--paars:purple;	
+	}
+
+	li {
+		color-scheme:light;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap:1em;
+		padding:1em;
+	}
+	
+	button, input {
+		font-family:initial;
+	}
+
+}
+
+
+
+
+
+/*************/
+/* 1. oranje */
+/*************/
+
+[aria-label="oranje"] label {
+	/* JOUW CODE HIER */
+	// hints:
+  // cursor
+	
+	
+}
+
+
+[aria-label="oranje"] input {
+	/* JOUW CODE HIER */
+	// hints:
+  // accent-color
+	// cursor
+	
+	
+}
+
+
+
+
+
+/***************/
+/* 2. checked */
+/***************/
+
+[aria-label="checked"] label {
+	cursor:pointer;
+	
+	display:flex;
+	align-items:center;
+	gap:.5em;
+}
+
+
+[aria-label="checked"] input {
+	/* JOUW CODE HIER */
+	// hints:
+  // appearance
+	// width en aspect-ratio
+	// padding
+	// border
+	// border-radius en corner-shape (chrome only)
+	// cursor
+	
+	
+	&:checked::after {
+		/* JOUW CODE HIER */
+		// hints:
+		// content
+		// color
+		// font-size
+		// line-height
+
+
+	}
+}
+
+
+
+
+
+/***************/
+/* 3. squircle */
+/***************/
+
+[aria-label="squircle"] label {
+	cursor:pointer;
+	
+	display:flex;
+	align-items:center;
+	gap:.5em;
+}
+
+
+[aria-label="squircle"] input {
+	/* JOUW CODE HIER */
+	// hints:
+  // appearance
+	// display (grid) - dan vult de ::after straks de hele input
+	// width en aspect-ratio
+	// padding
+	// border
+	// border-radius en corner-shape (chrome only)
+	// cursor
+	
+	
+	&:checked::after {
+		/* JOUW CODE HIER */
+		// hints:
+		// content
+		// background-color
+		// border-radius en corner-shape (chrome only)
+
+
+	}
+}
+
+
+
+
+
+/*************/
+/* 4. switch */
+/*************/
+
+[aria-label="switch"] label {
+	display:inline-flex;
+	align-items:center;
+	gap:.5em;
+	
+	cursor:pointer;
+}
+
+
+/* de input is de achtergrond van de switch */
+[aria-label="switch"] input {
+	/* JOUW CODE HIER */
+	// hints:
+	// appearence
+	// grootte (4em x 2em)
+	// margin
+	// background-color
+	// border-radius
+	// font
+	// cursor
+	
+	
+	/* de ::after is het balletje van de switch */
+	&::after {
+		/* JOUW CODE HIER */
+		// hints:
+		// content
+		// display
+		// grootte (2em x 2em)
+		// background-color
+		// border-radius
+		// transition
+
+
+	}
+
+
+	&:checked::after {
+		/* JOUW CODE HIER */
+		// hints:
+		// background-color
+		// translate (om te verplaatsen)
+
+
+	}
+}
+
+
+
+
+
+/********************/
+/* 5. omdat het kan */
+/********************/
+
+/* JOUW CODE HIER */
+// it's all yours
+[aria-label="omdat het kan"] label {
+	
+	
+}
+
+
+[aria-label="omdat het kan"] input {
+	
+	
+	&::before,
+	&::after {
+
+
+	}
+
+
+	&::before {
+
+
+	}
+
+
+	&::after {
+
+
+	}
+
+
+	&:checked::before {
+
+
+	}
+
+
+	&:checked::after {
+
+
+	}
+}
+</style>
+
+
+ <!----------------------- States tekstenvelden en co ---------------------->
+
+ <header>
+	<h1>Ranges</h1>
+	<p>Nb. Vergeet deze Pen niet te Fork-en, zodat je met je eigen kopie aan de slag gaat (knopje rechtsonder).</p>
+</header>
+  
+<main>
+	
+	<ul>
+		<li aria-label="groen" piste="blauw">
+			<label>
+				groen
+				<input type="range">
+			</label>
+		</li>
+
+
+		<li aria-label="streepjes" piste="rood" >
+			<label>
+				streepjes
+				<!-- EN WAT AAN DE INPUT TOEVOEGEN -->
+				<input type="range" min="0" max="100" value="25" step="25" list="streepjes">
+			</label>
+
+			<!-- JOUW DATALIST HIER -->
+			
+			
+		</li>
+
+
+		<li aria-label="cross browser basics" piste="rood">
+			<label>
+				cross browser basics
+				<input type="range">
+			</label>
+		</li>
+
+
+		<li aria-label="cross browser meer" piste="zwart">
+			<label>
+				cross browser meer
+				<input type="range">
+			</label>
+		</li>
+
+
+		<li aria-label="met output" piste="zwart">
+			<label>
+				met output
+				<input type="range" min="0" max="100" value="25">
+			</label>
+			<output></output>
+		</li>
+	</ul>
+	
+</main>
+
+<style>
+    @layer basis {
+	
+	:root {
+		--wit:white;
+		--lichtgrijs:silver;
+		--grijs:darkgray;
+		--donkergrijs:dimgray;
+		--zwart:black;
+
+		--roze:deeppink;
+		--rood:crimson;
+		--oranje:darkorange;
+		--geel:gold;
+		--groen:limegreen;
+		--blauw:dodgerblue;
+		--paars:purple;	
+	}
+
+	li {
+		color-scheme:light;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap:1em;
+		padding:1em;
+	}
+	
+	button, input {
+		font-family:initial;
+	}
+
+}
+
+
+
+
+
+/************/
+/* 1. groen */
+/************/
+
+[aria-label="groen"] label {
+	display:grid;
+}
+
+
+[aria-label="groen"] input {
+	/* JOUW CODE HIER */
+	// hints:
+  // cursor
+	// font
+	// accent-color
+	// margin
+	
+	
+}
+
+
+
+
+
+/****************/
+/* 2. streepjes */
+/****************/
+
+[aria-label="streepjes"] label {
+	display:grid;
+}
+
+[aria-label="streepjes"] input {
+	cursor:pointer;
+	font:inherit;
+	accent-color:var(--rood);
+	margin:0;
+}
+
+/* geen CSS nodig */
+/* wel een datalist in de html */
+
+
+
+
+
+/***************************/
+/* 3. cross browser basics */
+/***************************/
+
+/* bron: www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers */
+
+[aria-label="cross browser basics"] label {
+	display:grid;
+}
+
+
+[aria-label="cross browser basics"] input {
+	cursor:pointer;
+	margin:0;
+	
+	/* JOUW CODE HIER */
+	// hints:
+  // appearence
+	// height
+	// font
+	// outline --> geen
+	
+	
+}
+
+
+[aria-label="cross browser basics"] input {
+	
+	&::-webkit-slider-runnable-track {
+		/* JOUW CODE HIER */
+		// hints:
+		// height
+		// background-color
+
+
+	}
+
+
+	&::-webkit-slider-thumb {
+		/* JOUW CODE HIER */
+		// hints:
+		// appearence
+		// grootte (1.5em x 1.5em)
+		// background-color
+
+
+	}
+
+
+	&:focus-visible::-webkit-slider-thumb {
+		/* JOUW CODE HIER */
+		// hints:
+		// outline
+		// outline-offset
+
+
+	}
+	
+}
+
+
+
+[aria-label="cross browser basics"] input {
+	
+	&::-moz-range-track {
+		/* JOUW CODE HIER */
+		// hints:
+		// height
+		// background-color
+
+
+	}
+
+	&::-moz-range-thumb {
+		/* JOUW CODE HIER */
+		/* appearence
+		/* grootte (1.5em x 1.5em)
+		/* background-color
+		// border en border-radius
+
+
+	}
+
+	&:focus-visible::-moz-range-thumb {
+		/* JOUW CODE HIER */
+		// hints:
+		// outline
+		// outline-offset
+
+
+	}
+
+
+	&::-moz-range-progress {
+		/* JOUW CODE HIER */
+		// hints:
+		// height
+		// background-color
+
+
+	}
+	
+}
+
+
+
+
+
+/*************************/
+/* 4. cross browser meer */
+/*************************/
+
+/* bron: www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers */
+
+/* JOUW CODE HIER */
+// it's all yours 
+
+[aria-label="cross browser meer"] label {
+	display:grid;
+}
+
+
+[aria-label="cross browser meer"] input {
+
+	
+}
+
+
+///////////////////////////
+// VOOR SAFARI EN CHROME //
+///////////////////////////
+
+[aria-label="cross browser meer"] input::-webkit-slider-runnable-track {
+	
+	
+}
+
+
+[aria-label="cross browser meer"] input::-webkit-slider-thumb {
+	
+	
+}
+
+
+[aria-label="cross browser meer"] input:focus-visible::-webkit-slider-thumb {
+	
+	
+}
+
+
+//////////////////
+// VOOR FIREFOX //
+//////////////////
+
+[aria-label="cross browser meer"] input::-moz-range-track {
+	
+	
+}
+
+[aria-label="cross browser meer"] input::-moz-range-thumb {
+	
+	
+}
+
+
+[aria-label="cross browser meer"] input::-moz-range-progress {
+	
+	
+}
+
+
+
+
+
+/*****************/
+/* 5. met output */
+/*****************/
+
+/* je hebt anchor positioning nodig */
+/* voor nu alleen in chrome en safari */
+/* bron: developer.chrome.com/docs/css-ui/anchor-positioning-api */
+
+/* nb. ik heb de benodigde JS al voor je geschreven */
+
+[aria-label="met output"] {
+	display:grid;
+	grid-template-columns:auto 2em;
+	grid-template-rows:auto auto;
+	place-content:center;
+	align-items:center;
+	row-gap:0;
+	
+	/* als anchor positioning ondersteund wordt */
+	@supports (position-area:bottom) {
+		/* JOUW CODE HIER */
+		// hints:
+		// grid-template-columns
+		
+		
+	}
+		
+}
+
+[aria-label="met output"] label {
+	grid-row:span 2;
+	display:grid;
+	grid-template-rows:subgrid;
+	
+}
+
+
+[aria-label="met output"] input {
+	cursor:pointer;
+	font:inherit;
+	accent-color:var(--paars);
+	margin:0;
+}
+
+
+[aria-label="met output"] input::-webkit-slider-thumb {
+	/* als anchor positioning ondersteund wordt */
+	@supports (position-area:bottom) {
+		/* JOUW CODE HIER */
+		// hints:
+		// anchor-name
+		
+		
+	}
+}
+
+
+[aria-label="met output"] output {
+	grid-area:2/2;
+	
+	/* als anchor positioning ondersteund wordt */
+	@supports (position-area:bottom) {
+		/* JOUW CODE HIER */
+		// hints:
+		// position
+		// position-anchor
+		// position-area
+		
+		
+	}
+	
+}
+</style>
