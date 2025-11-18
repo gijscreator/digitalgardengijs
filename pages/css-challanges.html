@@ -383,34 +383,24 @@
 }
 
 
-// beide inputs
-[aria-label="icons"] input {
-	/* JOUW CODE HIER */
-	// hints:
-	// background-size --> 1.5em breed
-	// background-repeat
-	// background-position
-	// padding-left
-	
-	
-	// telefoonnummer
-	&[type="tel"] {
-		/* JOUW CODE HIER */
-		// hints:
-		// background-image
-		// telefoon: https://assets.codepen.io/274456/icon-telephone.png
 
+[aria-label="icons"] input {
+	background-size: 1.5rem;
+	background-repeat: no-repeat;
+	background-position: 2% 50%;
+	padding-left: 2.1rem;
+	
+	
+
+	&[type="tel"] {
+		background-image: url( https://assets.codepen.io/274456/icon-telephone.png);
 
 	}
 
 
-	// quilty pleasure
-	&[type="text"] {
-		/* JOUW CODE HIER */
-		// hints:
-		// background-image
-		// hartje: https://assets.codepen.io/274456/icon-heart.png
 
+	&[type="text"] {
+        background-image: url( https://assets.codepen.io/274456/icon-heart.png);
 
 	}
 }
@@ -438,91 +428,41 @@
 	border:solid .1em var(--zwart);
 	caret-color:var(--blauw);
 	
-	/* JOUW CODE HIER */
-	// hints:
-	// width
-	// padding-left
-	// background-dingen
-	// loepje: https://assets.codepen.io/274456/ui-icon-search-black.svg
-	// transition
+	width: 0rem;
+	padding-left: 2rem;
+	background-image: url(https://assets.codepen.io/274456/ui-icon-search-black.svg);
+	background-size:1.5em auto;
+	background-repeat:no-repeat;
+	background-position: 0.3em center;
+	transition: all .6s;
 	
 	
 	&::placeholder {
 		color:var(--zwart);
-		font-style:italic;
+		font-style: italic;
 	}
 
 
 	&::selection {
 		color:var(--wit);
 		background-color:var(--blauw);
+        transition: all .6s;
 	}
 
 
 	&:focus,
 	&:not(:placeholder-shown) {
-		/* JOUW CODE HIER */
-		// hints:
-		// width
-		// background-size
-		// background-position
-		// transition
+	    width: 100%;
+        background-size: 1rem auto;
+        background-repeat: no-repeat;
+        background-position:.6em center;
+	    transition: all .6s;
 
 
 	}
 }
 
-
-
-
-
-/********************/
-/* 4. onder protest */
-/********************/
-
-
-// hints:
-// grid op het label
-// input en de span in dezelfde cel (op elkaar)
-// de span met translate naar boven (en kleiner)
-
-[aria-label="onder protest"] label {
-	width:100%;
-	display:grid;
-	align-items:center;
-}
-
-[aria-label="onder protest"] input {
-	appearance:none;
-	width:100%;
-	font:inherit;
-	padding:.5em;
-	border-radius:.33em;
-	border:solid .1em var(--grijs);
-	caret-color:var(--blauw);
-	
-	/* JOUW CODE HIER */
-	
-	
-}
-
-[aria-label="onder protest"] span {
-	background-color:var(--wit);
-
-	/* JOUW CODE HIER */
-	
-	
-}
-
-[aria-label="onder protest"] input:focus + span,
-[aria-label="onder protest"] input:not(:placeholder-shown) + span {
-	/* JOUW CODE HIER */
-	
-	
-}
 </style>
-
-
 <!----------------------- Checkboxes en radio buttons ----------------------->
 
 <header>
@@ -614,19 +554,15 @@
 /*************/
 
 [aria-label="oranje"] label {
-	/* JOUW CODE HIER */
-	// hints:
-  // cursor
+  cursor: pointer
 	
 	
 }
 
 
 [aria-label="oranje"] input {
-	/* JOUW CODE HIER */
-	// hints:
-  // accent-color
-	// cursor
+    accent-color: orange;
+	cursor: pointer;
 	
 	
 }
@@ -649,23 +585,26 @@
 
 
 [aria-label="checked"] input {
-	/* JOUW CODE HIER */
-	// hints:
-  // appearance
-	// width en aspect-ratio
-	// padding
-	// border
-	// border-radius en corner-shape (chrome only)
-	// cursor
+    appearance:none;
+	
+	width:2em;
+	aspect-ratio:1;
+	margin:0;
+	
+	display:grid;
+	place-items:center;
+	
+	border:solid .1em currentcolor;
+	border-radius:.25em;
+	
+	cursor:pointer;
 	
 	
 	&:checked::after {
-		/* JOUW CODE HIER */
-		// hints:
-		// content
-		// color
-		// font-size
-		// line-height
+		content:"✓";
+		color: black;
+		font-size: 1.2rem;
+		line-height: 1;
 
 
 	}
@@ -689,24 +628,20 @@
 
 
 [aria-label="squircle"] input {
-	/* JOUW CODE HIER */
-	// hints:
-  // appearance
-	// display (grid) - dan vult de ::after straks de hele input
-	// width en aspect-ratio
-	// padding
-	// border
-	// border-radius en corner-shape (chrome only)
-	// cursor
+    appearance: none;
+	display: grid;
+	width: 1rem;
+    aspect-ratio: 1;
+	padding: .2em;
+	border: 1px solid black;
+	border-radius: 50%;
+	cursor: pointer;
 	
 	
 	&:checked::after {
-		/* JOUW CODE HIER */
-		// hints:
-		// content
-		// background-color
-		// border-radius en corner-shape (chrome only)
-
+		content:"";
+		background-color: blue;
+		border-radius: inherit;
 
 	}
 }
@@ -731,36 +666,32 @@
 /* de input is de achtergrond van de switch */
 [aria-label="switch"] input {
 	/* JOUW CODE HIER */
-	// hints:
-	// appearence
-	// grootte (4em x 2em)
-	// margin
-	// background-color
-	// border-radius
-	// font
-	// cursor
+	appearance: none;
+	width: 4rem;
+    height: 2rem;
+    margin: 0;
+	background-color: rgb(207, 207, 207);
+	border-radius: 25px;
+	font-size: 1rem;
+	cursor: pointer;
 	
 	
 	/* de ::after is het balletje van de switch */
 	&::after {
-		/* JOUW CODE HIER */
-		// hints:
-		// content
-		// display
-		// grootte (2em x 2em)
-		// background-color
-		// border-radius
-		// transition
-
+		content: "";
+		display: block;
+		width: 2rem;
+        height: 2rem;
+	    background-color: rgb(203, 0, 0);
+		border-radius: inherit;
+		transition: all .2s ease;
 
 	}
 
 
 	&:checked::after {
-		/* JOUW CODE HIER */
-		// hints:
-		// background-color
-		// translate (om te verplaatsen)
+        background-color: rgb(0, 255, 0);
+		translate: 100%;
 
 
 	}
@@ -775,14 +706,26 @@
 /********************/
 
 /* JOUW CODE HIER */
-// it's all yours
+
 [aria-label="omdat het kan"] label {
+		display:inline-flex;
+	align-items:center;
+	gap:.5em;
 	
+	cursor:pointer;
 	
 }
 
 
 [aria-label="omdat het kan"] input {
+		appearance: none;
+	width: 4rem;
+    height: 2rem;
+    margin: 0;
+	background-color: rgb(207, 207, 207);
+	border-radius: 25px;
+	font-size: 1rem;
+	cursor: pointer;
 	
 	
 	&::before,
@@ -799,7 +742,18 @@
 
 
 	&::after {
-
+		content: "";
+		display: block;
+		width: 2rem;
+        height: 2rem;
+	    background: conic-gradient(
+            rgb(255, 255, 255),
+            rgb(0, 0, 0),
+            rgb(255, 255, 255),
+            black
+        );
+		border-radius: inherit;
+		transition: all 1s ease;
 
 	}
 
@@ -811,6 +765,10 @@
 
 
 	&:checked::after {
+        background-color: rgb(0, 255, 0);
+
+        rotate: 360deg;
+		translate: 100%;
 
 
 	}
@@ -842,7 +800,13 @@
 				<!-- EN WAT AAN DE INPUT TOEVOEGEN -->
 				<input type="range" min="0" max="100" value="25" step="25" list="streepjes">
 			</label>
-
+            <datalist>
+                <option value="0">0</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </datalist>
 			<!-- JOUW DATALIST HIER -->
 			
 			
@@ -925,14 +889,10 @@
 
 
 [aria-label="groen"] input {
-	/* JOUW CODE HIER */
-	// hints:
-  // cursor
-	// font
-	// accent-color
-	// margin
-	
-	
+    cursor: grab;
+	font-size: 1rem;
+	accent-color: green;
+	margin: 0;
 }
 
 
@@ -948,7 +908,7 @@
 }
 
 [aria-label="streepjes"] input {
-	cursor:pointer;
+	cursor:grab;
 	font:inherit;
 	accent-color:var(--rood);
 	margin:0;
@@ -975,13 +935,10 @@
 [aria-label="cross browser basics"] input {
 	cursor:pointer;
 	margin:0;
-	
-	/* JOUW CODE HIER */
-	// hints:
-  // appearence
-	// height
-	// font
-	// outline --> geen
+    appearance: none;
+	height: 1.5rem;
+	font-size: 1rem;
+	outline-color: green;
 	
 	
 }
@@ -990,31 +947,26 @@
 [aria-label="cross browser basics"] input {
 	
 	&::-webkit-slider-runnable-track {
-		/* JOUW CODE HIER */
-		// hints:
-		// height
-		// background-color
+		height: 1.5rem;
+		background-color: purple;
 
 
 	}
 
 
 	&::-webkit-slider-thumb {
-		/* JOUW CODE HIER */
-		// hints:
-		// appearence
-		// grootte (1.5em x 1.5em)
-		// background-color
+		appearance: none;
+		width: 1.5rem;
+        height: 1.5rem;
+		background-color: blue;
 
 
 	}
 
 
 	&:focus-visible::-webkit-slider-thumb {
-		/* JOUW CODE HIER */
-		// hints:
-		// outline
-		// outline-offset
+		outline: green 5px 5px;
+		outline-offset: 5px;
 
 
 	}
@@ -1026,29 +978,26 @@
 [aria-label="cross browser basics"] input {
 	
 	&::-moz-range-track {
-		/* JOUW CODE HIER */
-		// hints:
-		// height
-		// background-color
+		height: 1.5rem;
+		background-color: green;
 
 
 	}
 
 	&::-moz-range-thumb {
-		/* JOUW CODE HIER */
-		/* appearence
-		/* grootte (1.5em x 1.5em)
-		/* background-color
-		// border en border-radius
+		appearance: none;
+		width: 1.5rem;
+        height: 1.5rem;
+		background-color: blue;
+        border: 2px black solid;
+        border-radius: 25px;
 
 
 	}
 
 	&:focus-visible::-moz-range-thumb {
-		/* JOUW CODE HIER */
-		// hints:
-		// outline
-		// outline-offset
+		outline: green 5px 5px;
+		outline-offset: 5px;
 
 
 	}
@@ -1074,9 +1023,6 @@
 /*************************/
 
 /* bron: www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers */
-
-/* JOUW CODE HIER */
-// it's all yours 
 
 [aria-label="cross browser meer"] label {
 	display:grid;
@@ -1208,3 +1154,6 @@
 	
 }
 </style>
+
+ <!----------------------- Ranges ---------------------->
+
