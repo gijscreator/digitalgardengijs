@@ -1,6 +1,8 @@
 @font-face {
     font-family: blackops;
-    src: url(/assets/BlackOpsOne-Regular.ttf); 
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/BlackOpsOne-Regular.ttf') format('opentype'); 
 }
 
 * {
