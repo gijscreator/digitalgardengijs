@@ -4,7 +4,6 @@
     font-weight: 700;
     src: url('../assets/BlackOpsOne-Regular.ttf') format('opentype'); 
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -24,11 +23,11 @@ main {
         h1 {
             position: absolute;
             text-align: center;
-            top: 26%;
+            top: 29%;
             width: 100vw;
             font-size: 3.5rem;
             color: white;
-            z-index: 1;
+            z-index: -1;
 
             @media (min-width: 600px) {
                 font-size: 5rem;
@@ -41,6 +40,84 @@ main {
             height: auto;
             margin-top: 5rem;
             z-index: 2; 
+            cursor: pointer;
+        }
+
+        .car {
+            position: relative;
+            width: 350px;
+
+            @media (min-width: 550px) {
+                width: 600px;
+            }
+
+            @media (min-width: 950px) {
+                width: 1000px;
+            }
+
+        }
+
+        .lefttyre {
+            position: absolute;
+            left: 16%;
+            top: 30%;
+            width: 15%;
+            height: auto;
+
+            @media (min-width: 550px) {
+                top: 36%;
+            }
+            @media (min-width: 950px) {
+                top: 41%;
+            }
+        }
+
+        .righttyre {
+            position: absolute;
+            right: 12.5%;
+            top: 30%;
+            width: 15%;
+            height: auto;
+
+            @media (min-width: 550px) {
+                top: 36%;
+            }
+            @media (min-width: 950px) {
+                top: 41%;
+            }
+        }
+
+        .driveby  {
+            animation-name:driveby;
+            animation-duration: 5s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+        }
+
+        .tyrespin {
+            animation-name: tyrespin;
+            animation-duration: 5s;
+            animation-timing-function: linear;
         }
     }
 }
+
+@keyframes driveby {
+    from    { 
+        transform: translateX(0); 
+    }
+
+    to  { 
+        transform: translateX(100vw); 
+    }
+}
+
+@keyframes tyrespin {
+    from  { 
+        transform: rotate(0deg); 
+    }
+
+    to   { 
+        transform: rotate(720deg) ; 
+    }
+} 

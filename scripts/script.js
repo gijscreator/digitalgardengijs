@@ -1,3 +1,16 @@
+
+const car = document.querySelector('.porsche');
+const leftTyre = document.querySelector('.lefttyre');
+const rightTyre = document.querySelector('.righttyre');
+
+car.addEventListener('click', () => {
+  car.classList.toggle('driveby');
+  leftTyre.classList.toggle('tyrespin');
+  rightTyre.classList.toggle('tyrespin');
+  
+});
+
+tyrespin
 // Hamburger menu javascript //
 
 let burger = document.querySelector('#checkbox');
@@ -62,6 +75,5 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     });
   });
 });
-
 
 
