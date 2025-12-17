@@ -97,6 +97,8 @@ main {
 
         }
 
+        
+
         .lefttyre {
             position: absolute;
             left: 16%;
@@ -128,10 +130,7 @@ main {
         }
 
         .driveby  {
-            animation-name:driveby;
-            animation-duration: 5s;
-            animation-iteration-count: 1;
-            animation-timing-function: linear;
+            animation: driveby 3s ease-in forwards;
         }
 
         .tyrespin {
@@ -143,13 +142,12 @@ main {
 }
 
 @keyframes driveby {
-    from    { 
-        transform: translateX(0); 
-    }
-
-    to  { 
-        transform: translateX(100vw); 
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300vw);
+  }
 }
 
 @keyframes tyrespin {

@@ -24,5 +24,6 @@ navtyre.addEventListener('click', () => {
 
 });
 
+const tireLocation = 
 
-
+// slipsporen toevoegen
