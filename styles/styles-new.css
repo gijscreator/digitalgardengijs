@@ -4,6 +4,7 @@
     font-weight: 700;
     src: url('../assets/BlackOpsOne-Regular.ttf') format('opentype'); 
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,24 @@
 
 html {
     background-color: #D3D3D3;
+}
+
+header {
+
+    nav {
+        padding: 1rem;
+
+        img {
+            width: 4rem;
+            height: auto;
+            cursor: pointer;
+        }
+        
+        .rotateme {
+            animation-name: navtyre;
+            animation-duration: 1s;
+        }
+    }
 }
 
 main {
@@ -113,6 +132,16 @@ main {
 }
 
 @keyframes tyrespin {
+    from  { 
+        transform: rotate(0deg); 
+    }
+
+    to   { 
+        transform: rotate(720deg) ; 
+    }
+} 
+
+@keyframes navtyre {
     from  { 
         transform: rotate(0deg); 
     }
