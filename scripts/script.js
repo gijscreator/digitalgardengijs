@@ -9,7 +9,7 @@ car.addEventListener('click', () => {
   
 });
 
-const navtyre = document.getElementById('navtyre')
+const navtyre = document.querySelector('.navtyre')
 
 navtyre.addEventListener('click', () => {
   navtyre.classList.toggle('rotateme');
@@ -17,9 +17,11 @@ navtyre.addEventListener('click', () => {
   
 });
 
+const menudrawer = document.querySelector('.menudrawer')
+
 navtyre.addEventListener('click', () => {
-  
-  
+  menudrawer.classList.toggle('open')
+
 });
 
 
