@@ -1,14 +1,22 @@
-
 const car = document.querySelector('.porsche');
 const leftTyre = document.querySelector('.lefttyre');
 const rightTyre = document.querySelector('.righttyre');
 
-car.addEventListener('click', () => {
+function toggleDrive() {
+  if (!car) return;
   car.classList.toggle('driveby');
-  leftTyre.classList.toggle('tyrespin');
-  rightTyre.classList.toggle('tyrespin');
-  
-});
+  if (leftTyre) leftTyre.classList.toggle('tyrespin');
+  if (rightTyre) rightTyre.classList.toggle('tyrespin');
+}
+
+if (car) {
+  car.addEventListener('click', toggleDrive);
+  // add touchstart for immediate response on mobile
+  car.addEventListener('touchstart', function (e) {
+    e.preventDefault(); // prevent double activation (touch -> click)
+    toggleDrive();
+  }, { passive: false });
+}
 // Hamburger menu javascript //
 
 let burger = document.querySelector('#checkbox');

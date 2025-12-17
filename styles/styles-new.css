@@ -14,110 +14,132 @@ html {
     background-color: #D3D3D3;
 }
 
-main {
+/* Unnested CSS for main > section and children */
+main section {
+    position: relative;
+}
 
+main section h1 {
+    position: absolute;
+    text-align: center;
+    top: 29%;
+    width: 100vw;
+    font-size: 3.5rem;
+    color: white;
+    z-index: 0;
+}
 
-    section {
-        position: relative;
-
-        h1 {
-            position: absolute;
-            text-align: center;
-            top: 29%;
-            width: 100vw;
-            font-size: 3.5rem;
-            color: white;
-            z-index: 0;
-
-            @media (min-width: 600px) {
-                font-size: 5rem;
-            }
-        }
-
-        img {
-            position: relative;
-            width: 100%;
-            height: auto;
-            margin-top: 5rem;
-            z-index: 2; 
-            cursor: pointer;
-        }
-
-        .car {
-            position: relative;
-            width: 350px;
-
-            @media (min-width: 550px) {
-                width: 600px;
-            }
-
-            @media (min-width: 950px) {
-                width: 1000px;
-            }
-
-        }
-
-        .lefttyre {
-            position: absolute;
-            left: 16%;
-            top: 30%;
-            width: 15%;
-            height: auto;
-
-            @media (min-width: 550px) {
-                top: 36%;
-            }
-            @media (min-width: 950px) {
-                top: 41%;
-            }
-        }
-
-        .righttyre {
-            position: absolute;
-            right: 12.5%;
-            top: 30%;
-            width: 15%;
-            height: auto;
-
-            @media (min-width: 550px) {
-                top: 36%;
-            }
-            @media (min-width: 950px) {
-                top: 41%;
-            }
-        }
-
-        .driveby  {
-            animation-name:driveby;
-            animation-duration: 5s;
-            animation-iteration-count: 1;
-            animation-timing-function: linear;
-        }
-
-        .tyrespin {
-            animation-name: tyrespin;
-            animation-duration: 5s;
-            animation-timing-function: linear;
-        }
+@media (min-width: 600px) {
+    main section h1 {
+        font-size: 5rem;
     }
 }
 
+main section img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 5rem;
+    z-index: 2; 
+    cursor: pointer;
+}
+
+main section .car {
+    position: relative;
+    width: 350px;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+@media (min-width: 550px) {
+    main section .car {
+        width: 600px;
+    }
+}
+
+@media (min-width: 950px) {
+    main section .car {
+        width: 1000px;
+    }
+}
+
+main section .lefttyre {
+    position: absolute;
+    left: 16%;
+    top: 30%;
+    width: 15%;
+    height: auto;
+}
+
+@media (min-width: 550px) {
+    main section .lefttyre {
+        top: 36%;
+    }
+}
+@media (min-width: 950px) {
+    main section .lefttyre {
+        top: 41%;
+    }
+}
+
+main section .righttyre {
+    position: absolute;
+    right: 12.5%;
+    top: 30%;
+    width: 15%;
+    height: auto;
+}
+
+@media (min-width: 550px) {
+    main section .righttyre {
+        top: 36%;
+    }
+}
+@media (min-width: 950px) {
+    main section .righttyre {
+        top: 41%;
+    }
+}
+
+/* animation classes */
+.driveby  {
+    -webkit-animation-name: driveby;
+    animation-name: driveby;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    will-change: transform;
+}
+
+.tyrespin {
+    -webkit-animation-name: tyrespin;
+    animation-name: tyrespin;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    will-change: transform;
+}
+
+/* keyframes with -webkit- prefix for iOS Safari */
+@-webkit-keyframes driveby {
+    from { -webkit-transform: translateX(0); transform: translateX(0); }
+    to   { -webkit-transform: translateX(100vw); transform: translateX(100vw); }
+}
 @keyframes driveby {
-    from    { 
-        transform: translateX(0); 
-    }
-
-    to  { 
-        transform: translateX(100vw); 
-    }
+    from { -webkit-transform: translateX(0); transform: translateX(0); }
+    to   { -webkit-transform: translateX(100vw); transform: translateX(100vw); }
 }
 
+@-webkit-keyframes tyrespin {
+    from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    to   { -webkit-transform: rotate(720deg); transform: rotate(720deg); }
+}
 @keyframes tyrespin {
-    from  { 
-        transform: rotate(0deg); 
-    }
-
-    to   { 
-        transform: rotate(720deg) ; 
-    }
-} 
+    from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    to   { -webkit-transform: rotate(720deg); transform: rotate(720deg); }
+}
