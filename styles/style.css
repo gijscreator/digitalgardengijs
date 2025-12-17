@@ -4,7 +4,7 @@
     font-style: normal;
     font-weight: 300;
     src: local('Bariol Thin'),
-         url('/assets/Necosmic-PersonalUse.otf') format('opentype');
+         url('../assets/Necosmic-PersonalUse.otf') format('opentype');
 }
 
 html {
