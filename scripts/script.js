@@ -9,8 +9,6 @@ car.addEventListener('click', () => {
   rightTyre.classList.toggle('tyrespin');
   
 });
-
-tyrespin
 // Hamburger menu javascript //
 
 let burger = document.querySelector('#checkbox');
