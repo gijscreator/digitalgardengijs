@@ -51,7 +51,7 @@ header {
 
     .rotateme {
         animation-name: navtyre;
-        animation-duration: 2s;
+        animation-duration: 1s;
     }
 
     .menudrawer {
@@ -67,14 +67,14 @@ header {
         &.open {
             left: 0%;
             animation-name: openmenu;
-            animation-duration: 2s;
+            animation-duration: 1s;
             z-index: 110;
         }
 
         &.closed {
             left: -100%;
             animation-name: closemenu;
-            animation-duration: 2s;
+            animation-duration: 1s;
             z-index: 110;
         }
     }
@@ -85,8 +85,8 @@ header {
         justify-content: flex-start;
         align-items: flex-start;
         width: 100vw;
-        height: 90vh;
-        padding: 1rem;
+        height: 80vh;
+        margin: 1rem;
         gap: 1rem;
 
         a {
