@@ -1,12 +1,12 @@
 const start = document.querySelector('.start')
-const audio = new Audio('/assets/startup.mp3')
+const audio = new Audio('assets/startup.mp3')
 const car = document.querySelector('.porsche')
 const leftTyre = document.querySelector('.lefttyre')
 const rightTyre = document.querySelector('.righttyre')
-const secondAudio = new Audio('/assets/driving.mp3')
+const secondAudio = new Audio('assets/driving.mp3')
 const navtyre = document.querySelector('.navtyre')
 const menudrawer = document.querySelector('.menudrawer')
-const tireAudio = new Audio('/assets/tirescreech.mp3')
+const tireAudio = new Audio('assets/tirescreech.mp3')
 
 
 // Start audio
