@@ -129,7 +129,7 @@ header {
 
 main {
 
-    section {
+    section:nth-of-type(1) {
         position: relative;
 
         h1 {
@@ -209,15 +209,70 @@ main {
             animation-timing-function: linear;
         }
     }
+
+    section:nth-of-type(2) {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        height: 30vh;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        border-radius: 170% 170% 80% 80%;
+        position: relative;
+
+
+        @media (max-width: 550px) {
+            height: 10vh;
+        }
+
+        article {
+            position: absolute;
+            top: 50%;
+            left: 4%;
+
+            button {
+                all: unset;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                border-radius: 100%;
+                width: 10vw;
+                height: 10vw;
+                background-color: #534e4e;
+
+                svg {
+                    width: 20px;
+                    height: auto;
+                }
+            }
+
+            ul {
+                list-style: none;
+                
+                li {
+                    
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
+
 
 @keyframes driveby {
   0% {
     transform: translateX(0);
   }
 
-  70% {
-    transform: translateX(300vw);
+  50% {
+    transform: translateX(250vw);
   }
   100% {
     transform: translateX(500vw);
