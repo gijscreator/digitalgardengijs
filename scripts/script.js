@@ -1,106 +1,117 @@
-const start = document.querySelector('.start')
-const audio = new Audio('assets/startup.mp3')
-const car = document.querySelector('.porsche')
-const leftTyre = document.querySelector('.lefttyre')
-const rightTyre = document.querySelector('.righttyre')
-const secondAudio = new Audio('assets/driving.mp3')
-const navtyre = document.querySelector('.navtyre')
-const menudrawer = document.querySelector('.menudrawer')
-const tireAudio = new Audio('assets/tirescreech.mp3')
+// selecteer alle dom elementen
+const start = document.querySelector('.start');
+const audio = new Audio('assets/startup.mp3');
+const car = document.querySelector('.porsche');
+const leftTyre = document.querySelector('.lefttyre');
+const rightTyre = document.querySelector('.righttyre');
+const secondAudio = new Audio('assets/driving.mp3');
+const navtyre = document.querySelector('.navtyre');
+const menudrawer = document.querySelector('.menudrawer');
+const tireAudio = new Audio('assets/tirescreech.mp3');
+const speedElement = document.querySelector('.speed');
 
 
-// Start audio
+// let gebruikt zodat hij later in het script veranderd kan worden
+
+let drivingTimeout;
+let speedInterval;  
+let speed = 0;
+
+// audio voor het rijden na delay
+
 if (start) {
-  start.addEventListener('click', startAudio)
+    start.addEventListener('click', startAudio);
 }
-
-let drivingTimeout; // store timeout so we can prevent duplicates
 
 function startAudio() {
-  audio.play();
+    audio.play();
 
-  // Ensure duration is loaded before setting timeout
-  if (audio.readyState >= 1) {
-    scheduleDriving();
-  } else {
-    audio.addEventListener('loadedmetadata', scheduleDriving, { once: true });
-  }
+    if (audio.readyState >= 1) {
+        scheduleDriving();
+    } else {
+        audio.addEventListener('loadedmetadata', scheduleDriving, { once: true });
+    }
 }
+
+// driving schedule
 
 function scheduleDriving() {
-  // Clear any existing timeout
-  if (drivingTimeout) clearTimeout(drivingTimeout);
+    if (drivingTimeout) clearTimeout(drivingTimeout);
 
-  const overlapTime = 0.5; // seconds
-  const timeout = Math.max((audio.duration - overlapTime) * 1000, 0);
+    let overlapTime = 0.5; // seconds
+    let timeout = Math.max((audio.duration - overlapTime) * 1000, 0);
 
-  drivingTimeout = setTimeout(() => {
-    drivingCar();
-  }, timeout);
+    drivingTimeout = setTimeout(function() {
+        drivingCar();
+    }, timeout);
 }
 
+// animatie voor het rijden met de auto en draaiende bandjes
 
-
-// Animatie voor de auto, 2 banden en de auto links naar rechts 
 if (car && leftTyre && rightTyre) {
-  car.addEventListener('click', drivingCar)
-  car.addEventListener('animationend', drivingCar)
+    car.addEventListener('click', drivingCar);
+    car.addEventListener('animationend', stopDriving);
 }
 
-function drivingCar () {
-  car.classList.toggle('driveby')
-  leftTyre.classList.toggle('tyrespin')
-  rightTyre.classList.toggle('tyrespin')
-  secondAudio.play()
+function drivingCar() {
+    car.classList.add('driveby');
+    leftTyre.classList.add('tyrespin');
+    rightTyre.classList.add('tyrespin');
+    secondAudio.play();
+
+    // speed meter beginnen
+
+    if (speedInterval) clearInterval(speedInterval);
+    speed = 0;
+    if (speedElement) speedElement.textContent = speed + ' km/h';
+
+    speedInterval = setInterval(function() {
+        speed += 54
+        if (speed > 200) speed = 200; // cap speed
+        if (speedElement) speedElement.textContent = speed + ' km/h';
+    }, 100);
 }
 
+// stoppen met rijden als de animatie af is.
 
-// Menu drawer met band als icon
+function stopDriving() {
+    car.classList.remove('driveby');
+    leftTyre.classList.remove('tyrespin');
+    rightTyre.classList.remove('tyrespin');
+
+    if (speedInterval) clearInterval(speedInterval);
+    speed = 0;
+
+    if (speedElement) speedElement.textContent = speed + ' km/h';
+}
+
+// navigatie menu met leuk bandje als effect
+
 if (navtyre) {
-  navtyre.addEventListener('click', navTyre)
-  navtyre.addEventListener('animationend', () => {
-    navtyre.classList.remove('rotateme')
-  })
+    navtyre.addEventListener('click', navTyre);
+    navtyre.addEventListener('animationend', function() {
+        navtyre.classList.remove('rotateme');
+    });
 }
 
-function navTyre () {
-  navtyre.classList.add('rotateme')
-  console.log('rotating')
+function navTyre() {
+    navtyre.classList.add('rotateme');
+    console.log('rotating');
 }
 
+// menu drawer zelf, met leuke animatie als hij in beeld komt
 
-// Menu drawer zelf met animaties
 if (navtyre && menudrawer) {
-  navtyre.addEventListener('click', menuDrawer)
+    navtyre.addEventListener('click', menuDrawer);
 }
 
-function menuDrawer () {
-  if (menudrawer.classList.contains('open')) {
-    menudrawer.classList.remove('open')
-    menudrawer.classList.add('closed')
-  } else {
-    menudrawer.classList.add('open')
-    menudrawer.classList.remove('closed')
-  }
-  tireAudio.play()
+function menuDrawer() {
+    if (menudrawer.classList.contains('open')) {
+        menudrawer.classList.remove('open');
+        menudrawer.classList.add('closed');
+    } else {
+        menudrawer.classList.add('open');
+        menudrawer.classList.remove('closed');
+    }
+    tireAudio.play();
 }
-
-
-
-
-
-let lastPosition = 0;
-
-function updateSpeedFromCar() {
-  const car = document.querySelector('.car');
-  const currentPosition = car.getBoundingClientRect().left;
-  const distance = currentPosition - lastPosition;
-
-  const speed = distance * 60; // approximate pixels per second
-  speedElement.textContent = `${Math.round(speed)} km/h`;
-
-  lastPosition = currentPosition;
-  requestAnimationFrame(updateSpeedFromCar);
-}
-
-updateSpeedFromCar();
