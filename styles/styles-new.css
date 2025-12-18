@@ -305,16 +305,9 @@ main {
 
 
 @keyframes driveby {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(250vw);
-  }
-  100% {
-    transform: translateX(500vw);
-  }
+    0% { transform: translateX(0); }
+    50% { transform: translateX(450%); }
+    100% { transform: translateX(700%); }
 }
 
 @keyframes tyrespin {
@@ -323,7 +316,7 @@ main {
     }
 
     to   { 
-        transform: rotate(1020deg) ; 
+        transform: rotate(1220deg) ; 
     }
 } 
 

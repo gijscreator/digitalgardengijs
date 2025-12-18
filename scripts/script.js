@@ -14,20 +14,31 @@ if (start) {
   start.addEventListener('click', startAudio)
 }
 
+let drivingTimeout; // store timeout so we can prevent duplicates
+
 function startAudio() {
   audio.play();
 
-  // Start drivingCar slightly before the first audio ends
-  audio.addEventListener('play', () => {
-    // overlap zodat hij niet buggy is
-    const overlapTime = 0.5; // seconds
-    const timeout = (audio.duration - overlapTime) * 1000; // convert to ms
-
-    setTimeout(() => {
-      drivingCar();
-    }, timeout);
-  });
+  // Ensure duration is loaded before setting timeout
+  if (audio.readyState >= 1) {
+    scheduleDriving();
+  } else {
+    audio.addEventListener('loadedmetadata', scheduleDriving, { once: true });
+  }
 }
+
+function scheduleDriving() {
+  // Clear any existing timeout
+  if (drivingTimeout) clearTimeout(drivingTimeout);
+
+  const overlapTime = 0.5; // seconds
+  const timeout = Math.max((audio.duration - overlapTime) * 1000, 0);
+
+  drivingTimeout = setTimeout(() => {
+    drivingCar();
+  }, timeout);
+}
+
 
 
 // Animatie voor de auto, 2 banden en de auto links naar rechts 
