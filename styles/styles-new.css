@@ -13,6 +13,7 @@
 
 html {
     background-color: #D3D3D3;
+    overflow-x: hidden;
 }
 
 header {
@@ -28,34 +29,75 @@ header {
         cursor: pointer;
     }
 
+    span {
+        color: black;
+        transition: color 2s ease;
+    }
+
+    &:has(.menudrawer.open) span {
+        color: white;
+        transition: color 2s ease;
+    }
+
+
+    button {
+        all: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+    }
+
     .rotateme {
         animation-name: navtyre;
         animation-duration: 2s;
     }
 
-    nav {
+    .menudrawer {
         display: flex;
         position: fixed;
         left: -100%;
-        top: 10%;
-        width: 100%;
-        height: 90%;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        align-items: flex-end;
+        background-color: #2f2f2f;
 
-        section {
-            background-color: white;
-            
+        &.open {
+            left: 0%;
+            animation-name: openmenu;
+            animation-duration: 2s;
+            z-index: 110;
+        }
+
+        &.closed {
+            left: -100%;
+            animation-name: closemenu;
+            animation-duration: 2s;
+            z-index: 110;
         }
     }
 
-    .menudrawer.open {
-        left: 0%;
-        animation-name: menudrawer;
-        animation-duration: 2s;
+    .menuwrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100vw;
+        height: 90vh;
+        padding: 1rem;
+        gap: 1rem;
+
+        a {
+            text-decoration: none;
+            color: white;
+            width: 100vw;
+        }
     }
 }
 
 main {
-
 
     section {
         position: relative;
@@ -97,8 +139,6 @@ main {
 
         }
 
-        
-
         .lefttyre {
             position: absolute;
             left: 16%;
@@ -130,23 +170,27 @@ main {
         }
 
         .driveby  {
-            animation: driveby 3s ease-in forwards;
+            animation: driveby 3s ease-in;
         }
 
         .tyrespin {
             animation-name: tyrespin;
-            animation-duration: 5s;
+            animation-duration: 3s;
             animation-timing-function: linear;
         }
     }
 }
 
 @keyframes driveby {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+
+  70% {
     transform: translateX(300vw);
+  }
+  100% {
+    transform: translateX(500vw);
   }
 }
 
@@ -156,7 +200,7 @@ main {
     }
 
     to   { 
-        transform: rotate(720deg) ; 
+        transform: rotate(1020deg) ; 
     }
 } 
 
@@ -170,12 +214,22 @@ main {
     }
 } 
 
-@keyframes menudrawer {
+@keyframes openmenu {
     from  { 
         left: -100%
     }
 
     to   { 
         left: 0%
+    }
+} 
+
+@keyframes closemenu {
+    from  { 
+        left: 0%
+    }
+
+    to   { 
+        left: -100%
     }
 } 
