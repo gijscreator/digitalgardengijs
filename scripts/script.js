@@ -66,7 +66,7 @@ function drivingCar() {
     if (speedElement) speedElement.textContent = speed + ' km/h';
 
     speedInterval = setInterval(function() {
-        speed += 54
+        speed += 4
         if (speed > 200) speed = 200; // cap speed
         if (speedElement) speedElement.textContent = speed + ' km/h';
     }, 100);
