@@ -44,8 +44,8 @@ header {
         all: unset;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: left;
+        justify-content: left;
         z-index: 200;
     }
 
@@ -90,9 +90,39 @@ header {
         gap: 1rem;
 
         a {
+            display: flex;
             text-decoration: none;
             color: white;
-            width: 100vw;
+            width: 80vw;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem;
+
+            &.active, &:hover {
+                background-color: #747474;
+                border-radius: .5rem;
+                transition: background-color .5s ease;
+            }
+
+            svg {
+                width: 30px;
+                height: auto;
+
+                path {
+                    fill: #A8953F;
+                }
+            }
+
+            .icon {
+
+                path {
+                    fill: #A8953F;
+                }
+
+                path:nth-of-type(3), path:nth-of-type(4), path:nth-of-type(5) {
+                    fill: white
+                }
+            }
         }
     }
 }
