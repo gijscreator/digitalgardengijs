@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     font-family: blackops;
+    box-sizing: border-box;
 }
 
 html {
@@ -227,12 +228,13 @@ main {
         }
 
         article {
-            position: absolute;
-            top: 50%;
-            left: 4%;
+            position: relative;
 
             button {
                 all: unset;
+                position: absolute;
+                top: 3.4rem;
+                left: 3rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -243,6 +245,10 @@ main {
                 height: 10vw;
                 background-color: #534e4e;
 
+                &:active, &:hover, &:focus {
+                    background-color: #A8953F;
+                }
+
                 svg {
                     width: 20px;
                     height: auto;
@@ -250,17 +256,49 @@ main {
             }
 
             ul {
-                list-style: none;
+                display: none;
                 
-                li {
-                    
+                li:nth-of-type(1) {
+                    position: absolute;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    svg {
+                        width: 30px;
+                        height: auto;
+
+                        path {
+                            fill: white;
+                        }
+                    }
                 }
+            }
+
+            .speedometer {
+                position: absolute;
+                margin-top: 4%;
+                left: 40%;
+                width: 20vw;
+                height: 20vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                background-color: white;
+                border-radius: 100%;
+                border: 3px red solid;
             }
         }
     }
 }
 
-
+#meter-bg-bar {
+  animation: dash 4s linear forwards infinite;
+  stroke-dasharray: 615;
+}
 
 
 
@@ -318,3 +356,23 @@ main {
         left: -100%
     }
 } 
+
+
+
+
+@keyframes dash {
+  0%,
+  100% {
+    stroke-dashoffset: 615;
+  }
+  25% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 307.5;
+  }
+  75% {
+    stroke-dashoffset: 0;
+  }
+}
+

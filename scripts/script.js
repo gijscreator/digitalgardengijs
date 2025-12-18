@@ -1,68 +1,66 @@
-
 const start = document.querySelector('.start')
-const audio = new Audio('assets/startup.mp3')
+const audio = new Audio('../assets/startup.mp3')
+const car = document.querySelector('.porsche')
+const leftTyre = document.querySelector('.lefttyre')
+const rightTyre = document.querySelector('.righttyre')
+const secondAudio = new Audio('../assets/driving.mp3')
+const navtyre = document.querySelector('.navtyre')
+const menudrawer = document.querySelector('.menudrawer')
+const tireAudio = new Audio('../assets/tirescreech.mp3')
 
-start.addEventListener('click', startAudio)
+
+// Start audio
+if (start) {
+  start.addEventListener('click', startAudio)
+}
 
 function startAudio () {
   audio.play()
-  audio.addEventListener('ended', drivingCar);
+  audio.addEventListener('ended', drivingCar)
+  console.log('im driving')
 }
-
 
 
 // Animatie voor de auto, 2 banden en de auto links naar rechts 
-
-const car = document.querySelector('.porsche');
-const leftTyre = document.querySelector('.lefttyre');
-const rightTyre = document.querySelector('.righttyre');
-const secondAudio = new Audio('assets/driving.mp3')
-
-car.addEventListener('click', drivingCar)
+if (car && leftTyre && rightTyre) {
+  car.addEventListener('click', drivingCar)
+  car.addEventListener('animationend', drivingCar)
+}
 
 function drivingCar () {
-  car.classList.toggle('driveby');
-  leftTyre.classList.toggle('tyrespin');
-  rightTyre.classList.toggle('tyrespin');
+  car.classList.toggle('driveby')
+  leftTyre.classList.toggle('tyrespin')
+  rightTyre.classList.toggle('tyrespin')
   secondAudio.play()
 }
 
-car.addEventListener('animationend', drivingCar)
-
 
 // Menu drawer met band als icon
-
-const navtyre = document.querySelector('.navtyre')
-
-navtyre.addEventListener('click', navTyre)
+if (navtyre) {
+  navtyre.addEventListener('click', navTyre)
+  navtyre.addEventListener('animationend', () => {
+    navtyre.classList.remove('rotateme')
+  })
+}
 
 function navTyre () {
-  navtyre.classList.toggle('rotateme');
+  navtyre.classList.add('rotateme')
+  console.log('rotating')
 }
 
-navtyre.addEventListener('animationend', navTyre)
 
 // Menu drawer zelf met animaties
-
-const menudrawer = document.querySelector('.menudrawer')
-const tireAudio = new Audio ('assets/tirescreech.mp3')
-
-navtyre.addEventListener('click', menuDrawer)
-
-function menuDrawer () {
-
-  if (menudrawer.classList.contains('open')) {
-    menudrawer.classList.remove('open');
-    menudrawer.classList.add('closed');
-    tireAudio.play()
-
-  } else {
-    menudrawer.classList.add('open');
-    menudrawer.classList.remove('closed');
-    tireAudio.play()
-  }
+if (navtyre && menudrawer) {
+  navtyre.addEventListener('click', menuDrawer)
 }
 
-
-
-// slipsporen toevoegen
+function menuDrawer () {
+  if (menudrawer.classList.contains('open')) {
+    menudrawer.classList.remove('open')
+    menudrawer.classList.add('closed')
+  } else {
+    menudrawer.classList.add('open')
+    menudrawer.classList.remove('closed')
+  }
+  tireAudio.play()
+}
