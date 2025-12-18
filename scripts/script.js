@@ -84,3 +84,23 @@ function menuDrawer () {
   }
   tireAudio.play()
 }
+
+
+
+
+
+let lastPosition = 0;
+
+function updateSpeedFromCar() {
+  const car = document.querySelector('.car');
+  const currentPosition = car.getBoundingClientRect().left;
+  const distance = currentPosition - lastPosition;
+
+  const speed = distance * 60; // approximate pixels per second
+  speedElement.textContent = `${Math.round(speed)} km/h`;
+
+  lastPosition = currentPosition;
+  requestAnimationFrame(updateSpeedFromCar);
+}
+
+updateSpeedFromCar();
