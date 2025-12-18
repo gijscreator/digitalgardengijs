@@ -14,10 +14,19 @@ if (start) {
   start.addEventListener('click', startAudio)
 }
 
-function startAudio () {
-  audio.play()
-  audio.addEventListener('ended', drivingCar)
-  console.log('im driving')
+function startAudio() {
+  audio.play();
+
+  // Start drivingCar slightly before the first audio ends
+  audio.addEventListener('play', () => {
+    // overlap zodat hij niet buggy is
+    const overlapTime = 0.5; // seconds
+    const timeout = (audio.duration - overlapTime) * 1000; // convert to ms
+
+    setTimeout(() => {
+      drivingCar();
+    }, timeout);
+  });
 }
 
 
