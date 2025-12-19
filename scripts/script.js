@@ -9,6 +9,7 @@ const navtyre = document.querySelector('.navtyre');
 const menudrawer = document.querySelector('.menudrawer');
 const tireAudio = new Audio('assets/tirescreech.mp3');
 const speedElement = document.querySelector('.speed');
+const dot = document.querySelector('.second');
 
 
 // let gebruikt zodat hij later in het script veranderd kan worden
@@ -66,8 +67,8 @@ function drivingCar() {
     if (speedElement) speedElement.textContent = speed + ' km/h';
 
     speedInterval = setInterval(function() {
-        speed += 4
-        if (speed > 200) speed = 200; // cap speed
+        speed += 9
+        if (speed > 300) speed = 300; // cap speed
         if (speedElement) speedElement.textContent = speed + ' km/h';
     }, 100);
 }
@@ -78,6 +79,8 @@ function stopDriving() {
     car.classList.remove('driveby');
     leftTyre.classList.remove('tyrespin');
     rightTyre.classList.remove('tyrespin');
+    dot.classList.add('clicked')
+
 
     if (speedInterval) clearInterval(speedInterval);
     speed = 0;

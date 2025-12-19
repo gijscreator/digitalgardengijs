@@ -17,6 +17,7 @@ html {
     overflow-x: hidden;
 }
 
+
 header {
 
     display: flex;
@@ -131,6 +132,7 @@ header {
 main {
 
     section:nth-of-type(1) {
+
         position: relative;
 
         h1 {
@@ -215,16 +217,16 @@ main {
         display: flex;
         flex-direction: column;
         width: 90vw;
-        height: 30vh;
+        height: 16vh;
         margin: 0 auto;
         background-color: black;
         color: white;
-        border-radius: 170% 170% 80% 80%;
+        border-radius: 170% 170% 100% 100%;
         position: relative;
 
 
-        @media (max-width: 550px) {
-            height: 10vh;
+        @media (min-width: 550px) {
+            height: 20vh;
         }
 
         article {
@@ -233,7 +235,7 @@ main {
             button {
                 all: unset;
                 position: absolute;
-                top: 3.4rem;
+                top: 3rem;
                 left: 3rem;
                 display: flex;
                 flex-direction: column;
@@ -247,6 +249,8 @@ main {
 
                 &:active, &:hover, &:focus {
                     background-color: #A8953F;
+                    scale: 1.1;
+                    transition: scale 1s ease;
                 }
 
                 svg {
@@ -278,10 +282,10 @@ main {
 
             .speedometer {
                 position: absolute;
-                margin-top: 4%;
-                left: 40%;
-                width: 20vw;
-                height: 20vw;
+                top: 2vh;
+                left: 35%;
+                width: 25vw;
+                height: 25vw;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -295,13 +299,51 @@ main {
     }
 }
 
-#meter-bg-bar {
-  animation: dash 4s linear forwards infinite;
-  stroke-dasharray: 615;
+
+/* --------------------------------- absolute positioned p ----------------------- */
+
+.tryme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    background-color:#A8953F;
+    border-radius: 100%;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    z-index: 100;
+
+
+    &.first {
+        left: 10vh;
+        right: 0vw;
+        font-size: .7rem;
+        width: 3rem;
+        height: 3rem;
+
+    }
+
+    &.second{
+        top: 14vh;
+        right: 1vw;
+        font-size: .6rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        z-index: 100;
+
+        &.clicked {
+            display: none;
+        }
+    }
 }
 
 
 
+
+
+/* ------------------------------------- Keyframes ---------------------------------*/
 
 
 @keyframes driveby {
@@ -351,21 +393,27 @@ main {
 } 
 
 
+@keyframes startup-dialog {
+    0% { 
+        transform: translate3d(10px); 
+    }
+    50% { 
+        transform: translate3d(10px); 
+    }
+    100% { 
+        transform: translate3d(10px); 
+    }
+}
 
-
-@keyframes dash {
-  0%,
-  100% {
-    stroke-dashoffset: 615;
-  }
-  25% {
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dashoffset: 307.5;
-  }
-  75% {
-    stroke-dashoffset: 0;
-  }
+@keyframes pulse {
+    0% { 
+        transform: scale(1.4);
+    }
+    50% { 
+        transform: scale(1.1);
+    }
+    100% { 
+        transform: scale(1.4);
+    }
 }
 
