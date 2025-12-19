@@ -118,3 +118,9 @@ function menuDrawer() {
     }
     tireAudio.play();
 }
+
+dot.addEventListener('click', amIACar)
+
+function amIACar () {
+    dot.textContent = "do i look like a car??"
+}

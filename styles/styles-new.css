@@ -203,7 +203,7 @@ main {
         }
 
         .driveby  {
-            animation: driveby 3s ease-in;
+            animation: driveby 4s ease-in;
         }
 
         .tyrespin {
@@ -347,18 +347,20 @@ main {
 
 
 @keyframes driveby {
-    0% { transform: translateX(0); }
+    0%, 5% { transform: translateX(0); }
+    20% {transform: translateX(100%)}
     50% { transform: translateX(450%); }
     100% { transform: translateX(700%); }
 }
 
 @keyframes tyrespin {
-    from  { 
+    0%, 5%  { 
         transform: rotate(0deg); 
     }
+    
 
-    to   { 
-        transform: rotate(1220deg) ; 
+    100%   { 
+        transform: rotate(820deg) ; 
     }
 } 
 
@@ -391,19 +393,6 @@ main {
         left: -100%
     }
 } 
-
-
-@keyframes startup-dialog {
-    0% { 
-        transform: translate3d(10px); 
-    }
-    50% { 
-        transform: translate3d(10px); 
-    }
-    100% { 
-        transform: translate3d(10px); 
-    }
-}
 
 @keyframes pulse {
     0% { 
