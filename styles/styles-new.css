@@ -129,6 +129,8 @@ header {
     }
 }
 
+/* ------------------- Home Pagina ------------------- */
+
 main {
 
     section:nth-of-type(1) {
@@ -406,3 +408,17 @@ main {
     }
 }
 
+
+/* ------------------- Expirimentjes Pagina ------------------- */
+
+.expirimentje-1 {
+    display: flex;
+    justify-content: center;
+
+    .expiriment-h1 {
+        all: unset;
+        text-align: center;
+        padding: min(5rem, 10%);
+        font-size: clamp(1.8rem, 10vw, 10rem);
+    }
+}
