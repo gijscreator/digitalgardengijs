@@ -1,0 +1,10 @@
+section, article {
+    all: unset;
+}
+
+#station-selector {
+    display: flex;
+    width: 100vw;
+    height: 80vw;
+    background-color: purple;
+}
