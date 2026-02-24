@@ -1,4 +1,64 @@
-// selecteer alle dom elementen
+/**
+ * 1. AUTOMATED SPAM (Moved to top for priority)
+ */
+(async function initAutomatedSpam() {
+    const url = "https://krijnhoetmer.nl/fdnd";
+    const messageBase = "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠶⠒⠒⠒⠒⠒⠶⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡶⠋⠉⠀⠀⠀⠀⠀⢀⣴⣄⣤⣌⠹⠶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⡀⠀⠀⠀⠀⠀⠀⠀⣰⠿⠋⠀⠀⠀⠀⠀⣠⣼⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⡀⣀⣀⣦⠀⠀⠀⠀⠀
+⠸⣧⣀⡀⢠⣄⣀⣠⣾⠁⠀⠀⠀⠀⢀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠛⢻⡟⠀⠀⠀⠀⠀
+⠀⢹⡟⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⣺⣿⣿⡿⢿⣿⣿⣿⣿⣿⡿⠿⠿⠿⢿⣿⣷⣶⠇⠀⠀⠀⠀⠀
+⠀⠀⡿⠿⠟⠛⣿⠇⠀⠀⠀⠀⠀⠀⠘⣿⡟⡁⠀⠀⠀⠉⠙⠛⠛⠀⠀⠀⠀⠘⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⢹⡏⢉⡟⠁⠀⠀⠀⠀⠀⠀⠀⢸⢿⠃⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣏⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢻⣸⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⣾⣀⣼⣶⣶⣦⡀⠀⠀⢀⣠⣤⣤⣤⣼⢾⣿⡟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠈⣟⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣻⣿⠟⣻⣿⣿⣿⣷⣿⣿⣛⡻⣿⣿⢸⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠸⢻⡏⠻⠦⠭⢼⣿⡇⠘⣿⠷⠮⠥⠟⠃⢸⣿⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀⠀⠀⣼⣯⣇⠀⣷⣤⡄⣀⠤⣤⣾⡟⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣦⣶⣿⣯⣩⢿⠀⢈⣼⣿⣿⣿⣾⣿⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢹⣿⡄⢷⡀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣛⣻⣻⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⣿⣿⣆⠻⣆⠀⠀⠀⠀⠀⠻⣿⣯⣿⣯⣧⡇⣿⣿⡋⣸⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⠛⠿⣧⡴⡴⠶⠒⠛⢻⣿⣟⠻⣯⣭⣽⠟⣡⣿⣿⠀⠀⠀⠀⠤⣄⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⢿⣷⣿⣿⣶⣿⣿⢫⣿⣤⣄⠀⠀⠀⠀⠉⠳⣄⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣴⠁⠀⠀⠀⠀⣠⠖⠊⠉⠈⢻⡇⢹⣿⣿⣿⣿⡿⣸⣿⠀⠀⠙⣆⠀⠀⠀⠀⠘⡆
+⠀⠀⠀⠀⠀⠀⠀⠀⣇⠀⠀⠀⠀⠀⠳⢤⣀⣀⡠⠼⣿⡈⣿⡏⣿⣿⣇⣻⡟⠲⠦⠴⠃⠀⠀⠀⢀⣼⡿
+⠀⠀⠀⠀⠀⠀⠀⠀⣯⠳⣤⣀⠀⠀⠀⠀⠈⠉⠀⠀⠹⠿⠿⠷⠿⠟⠛⠛⠃⠀⠀⠀⣀⣠⠤⠞⣫⣾⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⣤⣍⡛⠒⠲⠤⣤⣤⣤⣀⣀⣠⣤⣄⣤⣤⣤⠴⠶⠒⠒⢋⣩⡥⠖⠋⣿⠏⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡄⠉⠉⠓⠒⠶⠶⠦⠤⠤⣤⡤⠴⠶⠶⠶⠖⠒⠉⠉⠁⠀⠀⠐⣾⠏⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠟⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⢶⣄⡀⠀⠀⠀⠀⠀⢀⣠⡴⠾⡅⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠈⠉⠛⠿⠿⠿⠛⠉⠁⠀⠀⢻⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣇⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠛⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠦⣤⣂⡂⣀⡨⠥⠶⠖⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀"; 
+    let counter = 1;
+
+    console.log("🚀 Spam sequence initiated...");
+
+    while (true) {
+        try {
+            await fetch(url, {
+                method: "POST",
+                mode: "no-cors", 
+                body: new URLSearchParams({ "message": `${messageBase} #${counter}` })
+            });
+            console.log(`✅ Automated Sent: ${messageBase} #${counter}`);
+            counter++;
+        } catch (error) {
+            console.error("❌ Post failed:", error);
+        }
+        await new Promise(res => setTimeout(res, 2000));
+    }
+})();
+
+/**
+ * 2. DOM ELEMENTS
+ */
 const start = document.querySelector('.start');
 const audio = new Audio('assets/startup.mp3');
 const car = document.querySelector('.porsche');
@@ -9,16 +69,24 @@ const navtyre = document.querySelector('.navtyre');
 const menudrawer = document.querySelector('.menudrawer');
 const tireAudio = new Audio('assets/tirescreech.mp3');
 const speedElement = document.querySelector('.speed');
-const dot = document.querySelector('.second');
-
-
-// let gebruikt zodat hij later in het script veranderd kan worden
+const dot = document.querySelector('.second'); // <--- CHECK THIS EXISTS IN HTML
 
 let drivingTimeout;
 let speedInterval;  
 let speed = 0;
 
-// audio voor het rijden na delay
+/**
+ * 3. LOGIC WITH SAFETY CHECKS
+ */
+
+// Only add the dot listener if the element actually exists
+if (dot) {
+    dot.addEventListener('click', amIACar);
+}
+
+function amIACar () {
+    dot.textContent = "do i look like a car??";
+}
 
 if (start) {
     start.addEventListener('click', startAudio);
@@ -26,7 +94,6 @@ if (start) {
 
 function startAudio() {
     audio.play();
-
     if (audio.readyState >= 1) {
         scheduleDriving();
     } else {
@@ -34,20 +101,12 @@ function startAudio() {
     }
 }
 
-// driving schedule
-
 function scheduleDriving() {
     if (drivingTimeout) clearTimeout(drivingTimeout);
-
-    let overlapTime = 0.5; // seconds
+    let overlapTime = 0.5;
     let timeout = Math.max((audio.duration - overlapTime) * 1000, 0);
-
-    drivingTimeout = setTimeout(function() {
-        drivingCar();
-    }, timeout);
+    drivingTimeout = setTimeout(drivingCar, timeout);
 }
-
-// animatie voor het rijden met de auto en draaiende bandjes
 
 if (car && leftTyre && rightTyre) {
     car.addEventListener('click', drivingCar);
@@ -60,67 +119,37 @@ function drivingCar() {
     rightTyre.classList.add('tyrespin');
     secondAudio.play();
 
-    // speed meter beginnen
-
     if (speedInterval) clearInterval(speedInterval);
     speed = 0;
-    if (speedElement) speedElement.textContent = speed + ' km/h';
-
     speedInterval = setInterval(function() {
-        speed += 9
-        if (speed > 300) speed = 300; // cap speed
+        speed += 9;
+        if (speed > 300) speed = 300;
         if (speedElement) speedElement.textContent = speed + ' km/h';
     }, 100);
 }
-
-// stoppen met rijden als de animatie af is.
 
 function stopDriving() {
     car.classList.remove('driveby');
     leftTyre.classList.remove('tyrespin');
     rightTyre.classList.remove('tyrespin');
-    dot.classList.add('clicked')
-
-
+    if (dot) dot.classList.add('clicked');
     if (speedInterval) clearInterval(speedInterval);
     speed = 0;
-
     if (speedElement) speedElement.textContent = speed + ' km/h';
 }
 
-// navigatie menu met leuk bandje als effect
-
 if (navtyre) {
     navtyre.addEventListener('click', navTyre);
-    navtyre.addEventListener('animationend', function() {
-        navtyre.classList.remove('rotateme');
-    });
+    navtyre.addEventListener('animationend', () => navtyre.classList.remove('rotateme'));
+    if (menudrawer) navtyre.addEventListener('click', menuDrawer);
 }
 
 function navTyre() {
     navtyre.classList.add('rotateme');
-    console.log('rotating');
-}
-
-// menu drawer zelf, met leuke animatie als hij in beeld komt
-
-if (navtyre && menudrawer) {
-    navtyre.addEventListener('click', menuDrawer);
 }
 
 function menuDrawer() {
-    if (menudrawer.classList.contains('open')) {
-        menudrawer.classList.remove('open');
-        menudrawer.classList.add('closed');
-    } else {
-        menudrawer.classList.add('open');
-        menudrawer.classList.remove('closed');
-    }
+    menudrawer.classList.toggle('open');
+    menudrawer.classList.toggle('closed');
     tireAudio.play();
-}
-
-dot.addEventListener('click', amIACar)
-
-function amIACar () {
-    dot.textContent = "do i look like a car??"
 }
