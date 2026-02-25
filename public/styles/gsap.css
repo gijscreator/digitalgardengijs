@@ -1,4 +1,55 @@
 
+@font-face {
+    font-family: 'Myfont';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Bariol Thin'),
+    url('../assets/Necosmic-PersonalUse.otf') format('opentype');
+}
+
+html {
+    font-family: 'Myfont';
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    height: 100dvh;
+    width: 50vw;
+    color: white; 
+
+    li {
+        display: flex;
+        flex-direction: column;
+        
+        p {
+            opacity: 0;
+            transform: translateY(-200px);
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+a,
+p,
+article,
+section {
+    font-family: 'Myfont';
+    color: white;
+    margin: 0;
+}
+
+html {
+    background-color: #D3D3D3;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
 body {
 
     /* colors */

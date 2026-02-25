@@ -1,3 +1,5 @@
+// airplane animation on button flying away when hovering on a button or a link (<a>)
+
 const airplaneLinks = document.querySelectorAll(".primary.button, .secondary.button");
 
 airplaneLinks.forEach(link => {
@@ -23,15 +25,19 @@ airplaneLinks.forEach(link => {
         ease: "power2.in"
     });
 
-    gsap.to(icon, {
-        duration: 1,
-        rotation: 0,
-        x: 0,
-        opacity: 1,
-        fill: '#ffffff', 
-        overwrite: "auto" 
-    });
-
     link.addEventListener("mouseenter", () => timeline.play());
     link.addEventListener("mouseleave", () => timeline.reverse());
+});
+
+// airplane animation on button flying away when hovering on a button or a link (<a>)
+
+gsap.to(".testje li p", { 
+    opacity: 1, 
+    y: 0,       
+    duration: 1.5,
+    ease: "power4.out",
+    stagger: {
+        each: 0.3,
+        from: "end",
+    }
 });
