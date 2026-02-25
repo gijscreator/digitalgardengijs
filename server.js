@@ -78,6 +78,10 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.get('/createnotes', async (req, res) => {
+  res.render("createnotes.liquid")
+})
+
 app.post('/api/notes', upload.single('attachment'), async (req, res) => {
     try {
         const { title, content, category, topic, external_url, additional_links } = req.body;

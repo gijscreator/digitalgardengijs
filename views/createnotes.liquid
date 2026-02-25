@@ -1,0 +1,57 @@
+    {% render 'partials/head.liquid' %}
+    <main class="createnote">
+        {% comment %} Section with input field {% endcomment %}
+        <section>
+            <h2>Write a note</h2>
+            <form action="/api/notes" method="POST" enctype="multipart/form-data" class="garden-form">
+                <fieldset>
+                    <div>
+                        <label for="Topic">Topic</label>
+                        <input type="text" name="topic" placeholder="Topic (e.g., Coding, UX)">
+                    </div>
+
+                    <div>
+                        <label for="category">Category</label>
+                        <select name="category">
+                            <option value="general">General</option>
+                            <option value="idea">Idea</option>
+                            <option value="quick note">Quick note</option>
+                            <option value="lesson note">Lesson note</option>
+                            <option value="we love web">We love web</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" placeholder="Title" required>
+                    </div>
+                    
+                    <div>
+                        <label for="content">Content</label>
+                        <textarea name="content" placeholder="Your notes..." required></textarea>
+                    </div>
+
+                    <div>
+                        <label for="external_url">File</label>
+                        <input type="url" name="external_url" placeholder="Primary Link (https://...)">
+                    </div>
+
+                    <div>
+                        <label for="additional_links">Additional links</label>
+                        <textarea name="additional_links" placeholder="Additional links (one per line)"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="attachment">Attachment</label>
+                        <label>Attachment (Image or PDF):</label>
+                        <input type="file" name="attachment">
+                    </div>
+
+                    <button type="submit">Plant in Garden</button>
+                    
+                </fieldset>
+
+                
+            </form>
+        </section>
+    </main>

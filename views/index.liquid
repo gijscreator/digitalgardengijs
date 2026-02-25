@@ -2,34 +2,6 @@
 
 <main class="home">
 
-    {% comment %} Section with input field {% endcomment %}
-    <section>
-        <h2>Notitie schrijven</h2>
-        <form action="/api/notes" method="POST" enctype="multipart/form-data" class="garden-form">
-            <fieldset>
-                <input type="text" name="topic" placeholder="Topic (e.g., Coding, UX)">
-                <select name="category">
-                <option value="general">General</option>
-                <option value="seed">Seed (Idea)</option>
-                <option value="growth">Growth (Draft)</option>
-                <option value="evergreen">Evergreen (Finished)</option>
-                </select>
-
-                <input type="text" name="title" placeholder="Title" required>
-                <textarea name="content" placeholder="Your notes..." required></textarea>
-
-                <input type="url" name="external_url" placeholder="Primary Link (https://...)">
-                <textarea name="additional_links" placeholder="Additional links (one per line)"></textarea>
-
-                <label>Attachment (Image or PDF):</label>
-                <input type="file" name="attachment">
-
-            </fieldset>
-
-            <button type="submit">Plant in Garden</button>
-        </form>
-    </section>
-
     {% comment %} Section with filters and sorts {% endcomment %}
     <section>
         <nav class="garden-nav">
