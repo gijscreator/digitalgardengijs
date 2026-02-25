@@ -1,5 +1,12 @@
 {
+  "name": "digitalgardengijs",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "node": "^25.7.0"
+    "express": "^5.2.1",
+    "liquidjs": "^10.24.0"
   }
 }
