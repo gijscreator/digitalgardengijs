@@ -1,12 +1,13 @@
 {
-  "name": "digitalgardengijs",
+  "name": "digital-garden",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^5.2.1",
-    "liquidjs": "^10.24.0"
+    "express": "^4.21.0",
+    "liquidjs": "^10.16.0",
+    "pg": "^8.13.0"
   }
 }
