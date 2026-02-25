@@ -19,7 +19,7 @@ const pool = new Pool({
 });
 
 //  Liquid Setup
-app.engine('liquid', engine.next());
+app.engine('liquid', engine.express());
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'liquid');
 
