@@ -78,6 +78,23 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.get('/note/:id', async (req, res) => {
+    try {
+        const { id } = req.params; // Grabs the ID from the URL
+        const result = await pool.query('SELECT * FROM notes WHERE id = $1', [id]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).send("Note not found");
+        }
+
+        // Render a new liquid file and pass just that one note
+        res.render("detailnote.liquid", { note: result.rows[0] });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server Error");
+    }
+});
+
 app.get('/createnotes', async (req, res) => {
   res.render("createnotes.liquid")
 })

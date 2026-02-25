@@ -1,0 +1,13 @@
+{% render 'partials/head.liquid' %}
+<section>
+    {{ note.id }}
+    {{ note.title }}
+    {{ note.topic }}
+    {{ note.category }}
+    {{ note.content }}
+    {{ note.created_at }}
+    {{ note.category }}
+    {% if note.file_url %}
+            <img src="{{ note.file_url }}" alt="Attachment">
+    {% endif %}
+</section>
