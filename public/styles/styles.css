@@ -151,7 +151,14 @@ main.home {
             }
 
             p {
+                margin-block: .5rem;
                 text-wrap: wrap;
+                font-size: 1rem;
+            }
+
+            h3 {
+                margin-block: 1rem;
+                font-size: var(--heading-medium);
             }
         }
 
