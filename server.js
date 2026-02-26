@@ -99,6 +99,48 @@ app.get('/createnotes', async (req, res) => {
   res.render("createnotes.liquid")
 })
 
+app.get('/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const result = await pool.query('SELECT * FROM notes WHERE id = $1', [id]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).send("Note not found in the garden!");
+        }
+
+        // Render your form and pass the specific note data
+        res.render("createnotes.liquid", { 
+            note: result.rows[0], 
+            isEditing: true 
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Database Error");
+    }
+});
+
+app.post('/api/notes/update/:id', async (req, res) => {
+    const { id } = req.params;
+    // 1. Check that these names match the "name" attribute in your HTML
+    const { title, content, category, topic, external_url, additional_links } = req.body;
+
+    try {
+        // 2. Make sure the number of $1, $2 matches the number of variables
+        const query = `
+            UPDATE notes 
+            SET title = $1, content = $2, category = $3, topic = $4, external_url = $5, additional_links = $6 
+            WHERE id = $7
+        `;
+        const values = [title, content, category, topic, external_url, additional_links, id];
+
+        await pool.query(query, values);
+        res.redirect('/'); 
+    } catch (err) {
+        console.error("DATABASE ERROR:", err); // Look at your terminal for the real error!
+        res.status(500).send("Update Failed: " + err.message);
+    }
+});
+
 app.post('/api/notes', upload.single('attachment'), async (req, res) => {
     try {
         const { title, content, category, topic, external_url, additional_links } = req.body;

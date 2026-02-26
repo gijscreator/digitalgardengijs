@@ -28,7 +28,7 @@ header.sticky {
         display: none;
         justify-content: space-between;
         align-items: center;
-        width: 60%;
+        width: 80%;
         flex: 3;
 
         @media (min-width: 789px) {
@@ -72,6 +72,10 @@ header.sticky {
         position: relative;
         width: 20%;
 
+        @media (min-width: 789px) {
+            display: none;
+        }
+
         span {
             font-size: 1rem;
             color: white;
@@ -108,10 +112,56 @@ main.home {
 
     section:nth-of-type(1) {
 
+        article {
+            display: flex;
+            flex-direction: column;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 1rem;
+            align-items: center;
+        }
     }
 
     section:nth-of-type(2) {
-        
+
+        margin-top: 3rem;
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 425px), 1fr));
+            gap: 1rem;
+        }
+
+        li {
+            width: 100%;
+            min-width: 0;         
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--border-medium);
+            background-color: var(--background-secondary);
+            padding: 1rem;
+            color: white;
+    
+            img {
+                width: 60%
+            }
+
+            p {
+                text-wrap: wrap;
+            }
+        }
+
+        article {
+            
+            div.badges {
+                display: flex;
+                gap: 1rem;
+            }
+        }
     }
 
     section:nth-of-type(3) {

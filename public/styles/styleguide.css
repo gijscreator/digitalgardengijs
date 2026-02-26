@@ -16,7 +16,7 @@
 
 body {
     /* color */
-    --primary-cinema: #EDEDED;
+    --background-secondary: #252525;
     --badges: #BFFB4F;
     --secondary: #BFFB4F;
     --background-primary: #EDEDED; 
@@ -70,4 +70,23 @@ a, p, button {
 img, video {
     width: 100%;
     height: auto;
+}
+
+main {
+    margin: 1rem;
+}
+
+/* styling for badge */
+
+.badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--badges); 
+    border-radius: var(--border-small);
+    width: fit-content;
+    padding: .5rem 1rem;
+    color: var(--black);
+    text-decoration: none;
+
 }

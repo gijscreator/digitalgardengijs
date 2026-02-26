@@ -6,36 +6,24 @@
         <nav class="garden-nav">
             <article class="filter-group">
                 <h2>Filter</h2>
-                <a href="/?category=all" class="{% if selectedCategory == 'all' %}active{% endif %}">All</a>
-                <a href="/?category=seed" class="{% if selectedCategory == 'seed' %}active{% endif %}">Seeds</a>
-                <a href="/?category=growth" class="{% if selectedCategory == 'growth' %}active{% endif %}">Growth</a>
-                <a href="/?category=evergreen" class="{% if selectedCategory == 'evergreen' %}active{% endif %}">Evergreen</a>
+                <ul>
+                    <li><a class="badge {% if selectedCategory == 'all' %}active{% endif %}" href="/?category=all">All</a></li>
+                    <li><a class="badge {% if selectedCategory == 'general' %}active{% endif %}" href="/?category=general">General</a></li>
+                    <li><a class="badge {% if selectedCategory == 'idea' %}active{% endif %}" href="/?category=idea">Idea</a></li>
+                    <li><a class="badge {% if selectedCategory == 'quick note' %}active{% endif %}" href="/?category=quick%20note">Quick Note</a></li>
+                    <li><a class="badge {% if selectedCategory == 'lesson note' %}active{% endif %}" href="/?category=lesson%20note">Lesson Note</a></li>
+                    <li><a class="badge {% if selectedCategory == 'we love web' %}active{% endif %}" href="/?category=we%20love%20web">We Love Web</a></li>
+                </ul>
             </article>
 
             <article class="sort-group">
-                <strong>Sort:</strong>
-                <a href="/?sort=newest&category={{ selectedCategory }}">Newest</a>
-                <a href="/?sort=oldest&category={{ selectedCategory }}">Oldest</a>
+                <h2>Sort:</h2>
+                <ul>
+                    <li><a class="badge" href="/?sort=newest&category={{ selectedCategory }}">Newest</a></li>
+                    <li><a class="badge" href="/?sort=oldest&category={{ selectedCategory }}">Oldest</a></li>
+                </ul>
             </article>
         </nav>
-    </section>
-
-    {% comment %} Links for nav {% endcomment %}
-    <section>
-        <ul>
-            <li>
-                <a href="/notes">Alle belangrijke notities <span>!important</span>  </a>
-            </li>
-            <li>
-                <a href="/experimenteren">My Playground</a>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
     </section>
 
     {% comment %} Notes results {% endcomment %}
@@ -43,11 +31,13 @@
         <ul>
         {% for note in notes %}
             <li>
-                <header>
-                    <span>{{ note.category }}</span>
-                    <span>#{{ note.topic }}</span>
+                <article>
+                    <div class="badges">
+                        <span class="badge">{{ note.category }}</span>
+                        <span class="badge">#{{ note.topic }}</span>
+                    </div>
                     <h3>{{ note.title }}</h3>
-                </header>
+                </article>
 
                 {% if note.file_url %}
                     <div class="attachment">
@@ -59,7 +49,7 @@
                     </div>
                 {% endif %}
 
-                <p>{{ note.content | truncatewords: 30 }}</p>
+                <p>{{ note.content | truncatewords: 10 }}</p>
                 <a href="/note/{{ note.id }}">Read more</a>
 
                 {% if note.external_url %}
