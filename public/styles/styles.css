@@ -1,31 +1,17 @@
-@font-face {
-    font-family: blackops;
-    font-style: normal;
-    font-weight: 500;
-    src: url('../assets/BlackOpsOne-Regular.ttf') format('opentype'); 
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: blackops;
-    box-sizing: border-box;
-    list-style: none;
-    border: none;
-}
-
 html {
     background-color: #EDEDED;
-    overflow-x: hidden;
 }
 
 header.sticky {
     display: flex;
+    position: sticky;
+    top:0;
+    left: 0;
     justify-content: space-between;
     width: 100%;
     padding: 1rem;
     height: fit-content;
-    max-height: 7rem;
+    max-height: 10dvh;
     background-color: black;
 
     a.logo {
@@ -38,12 +24,17 @@ header.sticky {
         }
     }
 
-    nav {
-        display: flex;
+    nav.desktop {
+        display: none;
         justify-content: space-between;
         align-items: center;
         width: 60%;
         flex: 3;
+
+        @media (min-width: 789px) {
+            display: flex;
+        }
+
 
         a {
             text-decoration: none;
@@ -54,9 +45,67 @@ header.sticky {
             }
         }
     }
+
+    section.hamburgermenu {
+        display: flex;
+        flex-direction: column;
+
+        nav {
+            display: inherit;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        flex-direction: column;        
+        position: relative;
+        width: 20%;
+
+        span {
+            font-size: 1rem;
+            color: white;
+            position: absolute;
+            bottom: -1rem;
+        }
+
+        .icon-wrapper {
+            position: relative;
+            width: 2.9375rem;
+            height: 1.9375rem;
+        }
+
+        .icon-hamburger, .icon-close {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .icon-close {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0.5);
+        }
+
+        .close {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
 }
 
+
 main.home {
+
     section:nth-of-type(1) {
 
     }
@@ -95,6 +144,55 @@ main.home {
         }
     }
 }
+
+
+[popover] {
+
+    width: 100vw;
+    height: 80dvh;
+    transform: translateY(100vh); 
+    opacity: 0;
+    border-radius: 0 0 1.25rem 1.25rem;
+    pointer-events: auto !important;
+    
+    transition: 
+        transform 0.3s ease-in-out, 
+        opacity 0.3s, 
+        display 0.3s allow-discrete, 
+        overlay 0.3s allow-discrete
+    ;
+
+    &:popover-open {
+        transform: translateY(10dvh);
+        opacity: 1;
+
+        @starting-style {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    }
+
+    &::backdrop {
+        position: fixed;
+        top: 10dvh;
+        left: 0;
+        pointer-events: auto;
+        background-color: rgba(0, 0, 0, 0);
+        transition: 
+            display 0.3s allow-discrete, 
+            overlay 0.3s allow-discrete, 
+            background-color 0.3s
+        ;
+    }
+
+    &:popover-open::backdrop {
+        pointer-events: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+}
+
+
 
 main.createnote {
     margin: 3rem;

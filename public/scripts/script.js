@@ -1,92 +1,116 @@
+// Select dom elements 
+const popover = document.querySelector('[popover]');
+const menuText = document.querySelector('.menu');
+const closeText = document.querySelector('.close');
+const navLinks = ".hamburgermenu nav a";
+const iconHam = document.querySelector('.icon-hamburger');
+const iconClose = document.querySelector('.icon-close');
 
+// GSAP plugin splittext
+const menuSplit = new SplitText(menuText, { type: "chars" });
+const closeSplit = new SplitText(closeText, { type: "chars" });
 
-const start = document.querySelector('.start');
-const audio = new Audio('assets/startup.mp3');
-const car = document.querySelector('.porsche');
-const leftTyre = document.querySelector('.lefttyre');
-const rightTyre = document.querySelector('.righttyre');
-const secondAudio = new Audio('assets/driving.mp3');
-const navtyre = document.querySelector('.navtyre');
-const menudrawer = document.querySelector('.menudrawer');
-const tireAudio = new Audio('assets/tirescreech.mp3');
-const speedElement = document.querySelector('.speed');
-const dot = document.querySelector('.second'); 
+popover.addEventListener('toggle', (event) => {
+    // Kill the animation that was playing so it wont appear wierdly when opening the menu fast
+    gsap.killTweensOf([menuSplit.chars, closeSplit.chars, iconHam, iconClose, menuText, closeText]);
+    
+    const timeLine = gsap.timeline({ 
+        defaults: { 
+            duration: 0.4, 
+            ease: "power4.out" 
+        } 
+    });
 
-let drivingTimeout;
-let speedInterval;  
-let speed = 0;
+    if (event.newState === 'open') {
+        // force the visability
+        gsap.set([menuText, closeText], { 
+            visibility: "visible", 
+            opacity: 1 
+        });
+        
+        gsap.set(closeSplit.chars, { 
+            opacity: 0, 
+            y: 30 
+        });
 
-// Only add the dot listener if the element actually exists
-if (dot) {
-    dot.addEventListener('click', amIACar);
-}
+        timeLine.to(iconHam, { 
+            rotation: 90, 
+            scale: 0.5, 
+            opacity: 0 
+        })
+        .to(iconClose, { 
+            rotation: 0, 
+            scale: 1, 
+            opacity: 1 
+        }, "<")
+        .to(menuSplit.chars, { 
+            y: -30, 
+            opacity: 0, 
+            stagger: 0.02 
+        }, "<")
+        .to(closeSplit.chars, { 
+            y: 0, 
+            opacity: 1, 
+            stagger: 0.02 
+        }, "<0.1")
+        .set(menuText, { 
+            visibility: "hidden" 
+        });
 
-function amIACar () {
-    dot.textContent = "do i look like a car??";
-}
+        gsap.fromTo(navLinks, 
+            { 
+                opacity: 0, 
+                y: -20 
+            }, 
+            { 
+                opacity: 1, 
+                y: 0, 
+                duration: 0.6, 
+                stagger: 0.05, 
+                delay: 0.1, 
+                overwrite: true 
+            }
+        );
 
-if (start) {
-    start.addEventListener('click', startAudio);
-}
-
-function startAudio() {
-    audio.play();
-    if (audio.readyState >= 1) {
-        scheduleDriving();
     } else {
-        audio.addEventListener('loadedmetadata', scheduleDriving, { once: true });
+        // Force the visability
+        gsap.set([menuText, closeText], { 
+            visibility: "visible", 
+            opacity: 1 
+        });
+
+        gsap.set(menuSplit.chars, { 
+            opacity: 0, 
+            y: -30 
+        });
+
+        timeLine.to(iconClose, { 
+            rotation: -90, 
+            scale: 0.5, 
+            opacity: 0 
+        })
+        .to(iconHam, { 
+            rotation: 0, 
+            scale: 1, 
+            opacity: 1 
+        }, "<")
+        .to(closeSplit.chars, { 
+            y: 30, 
+            opacity: 0, 
+            stagger: 0.02 
+        }, "<")
+        .to(menuSplit.chars, { 
+            y: 0, 
+            opacity: 1, 
+            stagger: 0.02 
+        }, "<0.1")
+        .set(closeText, { 
+            visibility: "hidden" 
+        });
+            
+        gsap.set(navLinks, { 
+            opacity: 0, 
+            y: -20 
+        });
     }
-}
-
-function scheduleDriving() {
-    if (drivingTimeout) clearTimeout(drivingTimeout);
-    let overlapTime = 0.5;
-    let timeout = Math.max((audio.duration - overlapTime) * 1000, 0);
-    drivingTimeout = setTimeout(drivingCar, timeout);
-}
-
-if (car && leftTyre && rightTyre) {
-    car.addEventListener('click', drivingCar);
-    car.addEventListener('animationend', stopDriving);
-}
-
-function drivingCar() {
-    car.classList.add('driveby');
-    leftTyre.classList.add('tyrespin');
-    rightTyre.classList.add('tyrespin');
-    secondAudio.play();
-
-    if (speedInterval) clearInterval(speedInterval);
-    speed = 0;
-    speedInterval = setInterval(function() {
-        speed += 9;
-        if (speed > 300) speed = 300;
-        if (speedElement) speedElement.textContent = speed + ' km/h';
-    }, 100);
-}
-
-function stopDriving() {
-    car.classList.remove('driveby');
-    leftTyre.classList.remove('tyrespin');
-    rightTyre.classList.remove('tyrespin');
-    if (dot) dot.classList.add('clicked');
-    if (speedInterval) clearInterval(speedInterval);
-    speed = 0;
-    if (speedElement) speedElement.textContent = speed + ' km/h';
-}
-
-if (navtyre) {
-    navtyre.addEventListener('click', navTyre);
-    navtyre.addEventListener('animationend', () => navtyre.classList.remove('rotateme'));
-    if (menudrawer) navtyre.addEventListener('click', menuDrawer);
-}
-
-function navTyre() {
-    navtyre.classList.add('rotateme');
-}
-
-function menuDrawer() {
-    menudrawer.classList.toggle('open');
-    menudrawer.classList.toggle('closed');
-    tireAudio.play();
-}
+});

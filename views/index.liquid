@@ -1,23 +1,22 @@
 {% render 'partials/head.liquid' %}
-
 <main class="home">
 
     {% comment %} Section with filters and sorts {% endcomment %}
     <section>
         <nav class="garden-nav">
-            <div class="filter-group">
-                <strong>Filter:</strong>
+            <article class="filter-group">
+                <h2>Filter</h2>
                 <a href="/?category=all" class="{% if selectedCategory == 'all' %}active{% endif %}">All</a>
                 <a href="/?category=seed" class="{% if selectedCategory == 'seed' %}active{% endif %}">Seeds</a>
                 <a href="/?category=growth" class="{% if selectedCategory == 'growth' %}active{% endif %}">Growth</a>
                 <a href="/?category=evergreen" class="{% if selectedCategory == 'evergreen' %}active{% endif %}">Evergreen</a>
-            </div>
+            </article>
 
-            <div class="sort-group">
+            <article class="sort-group">
                 <strong>Sort:</strong>
                 <a href="/?sort=newest&category={{ selectedCategory }}">Newest</a>
                 <a href="/?sort=oldest&category={{ selectedCategory }}">Oldest</a>
-            </div>
+            </article>
         </nav>
     </section>
 
@@ -44,38 +43,38 @@
         <ul>
         {% for note in notes %}
             <li>
-                <a href="/note/{{ note.id }}">
-                    <header>
-                        <span>{{ note.category }}</span>
-                        <span>#{{ note.topic }}</span>
-                        <h3>{{ note.title }}</h3>
-                    </header>
+                <header>
+                    <span>{{ note.category }}</span>
+                    <span>#{{ note.topic }}</span>
+                    <h3>{{ note.title }}</h3>
+                </header>
 
-                    {% if note.file_url %}
-                        <div class="attachment">
-                        {% if note.file_url contains '.pdf' %}
-                            <a href="{{ note.file_url }}" target="_blank">📄 View PDF Document</a>
-                        {% else %}
-                            <img src="{{ note.file_url }}" alt="Note Image">
-                        {% endif %}
-                        </div>
+                {% if note.file_url %}
+                    <div class="attachment">
+                    {% if note.file_url contains '.pdf' %}
+                        <a href="{{ note.file_url }}" target="_blank">📄 View PDF Document</a>
+                    {% else %}
+                        <img src="{{ note.file_url }}" alt="Note Image">
                     {% endif %}
+                    </div>
+                {% endif %}
 
-                    <p>{{ note.content }}</p>
+                <p>{{ note.content | truncatewords: 30 }}</p>
+                <a href="/note/{{ note.id }}">Read more</a>
 
-                    {% if note.external_url %}
-                        <a href="{{ note.external_url }}" target="_blank" > Source Link </a>
-                    {% endif %}
+                {% if note.external_url %}
+                    <a href="/note/{{ note.id }}">
+                    <a href="{{ note.external_url }}" target="_blank" > Source Link </a>
+                {% endif %}
 
-                    {% if note.additional_links %}
-                        <div class="extra-links">
-                        <strong>More resources:</strong>
-                        {{ note.additional_links | newline_to_br }}
-                        </div>
-                    {% endif %}
-                    
-                    <footer>{{ note.created_at | date: "%b %d, %Y" }}</footer>
-                </a>
+                {% if note.additional_links %}
+                    <div class="extra-links">
+                    <strong>More resources:</strong>
+                    {{ note.additional_links | newline_to_br }}
+                    </div>
+                {% endif %}
+                
+                <footer>{{ note.created_at | date: "%b %d, %Y" }}</footer>
             </li>
         {% endfor %}
         </ul>

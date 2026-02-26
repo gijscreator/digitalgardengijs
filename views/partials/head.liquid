@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styleguide.css">
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js" defer></script>
     <script src="/scripts/script.js" defer></script>
     <title>Leerschema Gijs</title>
 </head>
@@ -15,7 +18,7 @@
             <img src="/assets/logog.png" alt="">
         </a>
         
-        <nav>
+        <nav class="desktop">
             <a href="">Notes</a>
             <a href="">Play garden</a>
             <a href="">Css challenges</a>
@@ -24,4 +27,29 @@
             <a href="">Handige linkjes</a>
             <a href="">Portfolio</a>
         </nav>
+
+        <section class="hamburgermenu" id="hamburgermenu" popover>
+            <nav class="mobile">
+                <a href="/notes">Notes</a>
+                <a href="/playgarden">Play garden</a>
+                <a href="/csschallanges">Css challenges</a>
+                <a href="/weloveweb">We love web</a>
+                <a href="/gsap">Gsap</a>
+                <a href="/handylinks">Handige linkjes</a>
+                <a href="/portfolio">Portfolio</a>
+            </nav>
+        </section>
+
+        <button popovertarget="hamburgermenu">
+            <div class="icon-wrapper">
+                <svg class="icon-hamburger" width="47" height="31" viewBox="0 0 47 31" fill="none">
+                    <path d="M1.75 15.25H45.25M1.75 1.75H45.25M1.75 28.75H45.25" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+                </svg>
+                <svg class="icon-close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.5 2L2 27.5M2 2L27.5 27.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span class="menu">Menu</span>
+            <span class="close">Close</span>
+        </button>
     </header>
