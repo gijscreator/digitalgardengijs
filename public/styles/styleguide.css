@@ -91,11 +91,27 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--badges); 
+    background-color: var(--background-secondary); 
     border-radius: var(--border-small);
     width: fit-content;
     padding: .5rem 1rem;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
+    box-shadow: 5px 5px 5px var(--background-secondary);
+    transition: transform .3s ease ;
+
+    &.link:hover {
+        transform: translateY(.5rem);
+    }
+
+    &.link:active {
+        transform: translateY(.7rem);
+    }
+
+    &.link.active {
+        background-color: var(--badges);
+        box-shadow: 5px 5px 5px var(--badges);
+        color: var(--black);
+    }
 
 }

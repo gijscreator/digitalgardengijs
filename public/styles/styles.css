@@ -111,10 +111,12 @@ header.sticky {
 main.home {
 
     section:nth-of-type(1) {
+        
 
         article {
             display: flex;
             flex-direction: column;
+            margin-block: 2rem;
         }
 
         ul {
@@ -159,6 +161,10 @@ main.home {
             h3 {
                 margin-block: 1rem;
                 font-size: var(--heading-medium);
+            }
+            
+            a {
+                color: var(--badges);
             }
         }
 

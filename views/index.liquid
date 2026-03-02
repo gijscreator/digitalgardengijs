@@ -3,27 +3,25 @@
 
     {% comment %} Section with filters and sorts {% endcomment %}
     <section>
-        <nav class="garden-nav">
-            <article class="filter-group">
-                <h2>Filter</h2>
-                <ul>
-                    <li><a class="badge {% if selectedCategory == 'all' %}active{% endif %}" href="/?category=all">All</a></li>
-                    <li><a class="badge {% if selectedCategory == 'general' %}active{% endif %}" href="/?category=general">General</a></li>
-                    <li><a class="badge {% if selectedCategory == 'idea' %}active{% endif %}" href="/?category=idea">Idea</a></li>
-                    <li><a class="badge {% if selectedCategory == 'quick note' %}active{% endif %}" href="/?category=quick%20note">Quick Note</a></li>
-                    <li><a class="badge {% if selectedCategory == 'lesson note' %}active{% endif %}" href="/?category=lesson%20note">Lesson Note</a></li>
-                    <li><a class="badge {% if selectedCategory == 'we love web' %}active{% endif %}" href="/?category=we%20love%20web">We Love Web</a></li>
-                </ul>
-            </article>
+        <article>
+            <h2>Filter</h2>
+            <ul>
+                <li><a class="badge link {% if selectedCategory == 'all' %}active{% endif %}" href="/?category=all">All</a></li>
+                <li><a class="badge link {% if selectedCategory == 'general' %}active{% endif %}" href="/?category=general">General</a></li>
+                <li><a class="badge link {% if selectedCategory == 'idea' %}active{% endif %}" href="/?category=idea">Idea</a></li>
+                <li><a class="badge link {% if selectedCategory == 'quick note' %}active{% endif %}" href="/?category=quick%20note">Quick Note</a></li>
+                <li><a class="badge link {% if selectedCategory == 'lesson note' %}active{% endif %}" href="/?category=lesson%20note">Lesson Note</a></li>
+                <li><a class="badge link {% if selectedCategory == 'we love web' %}active{% endif %}" href="/?category=we%20love%20web">We Love Web</a></li>
+            </ul>
+        </article>
 
-            <article class="sort-group">
-                <h2>Sort:</h2>
-                <ul>
-                    <li><a class="badge" href="/?sort=newest&category={{ selectedCategory }}">Newest</a></li>
-                    <li><a class="badge" href="/?sort=oldest&category={{ selectedCategory }}">Oldest</a></li>
-                </ul>
-            </article>
-        </nav>
+        <article>
+            <h2>Sort:</h2>
+            <ul>
+                <li><a class="badge link" href="/?sort=newest&category={{ selectedCategory }}">Newest</a></li>
+                <li><a class="badge link" href="/?sort=oldest&category={{ selectedCategory }}">Oldest</a></li>
+            </ul>
+        </article>
     </section>
 
     {% comment %} Notes results {% endcomment %}
