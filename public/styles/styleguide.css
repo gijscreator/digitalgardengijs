@@ -100,6 +100,11 @@ main {
     box-shadow: 5px 5px 5px var(--background-secondary);
     transition: transform .3s ease ;
 
+    &.decorative {
+        background-color: var(--badges);
+        color: var(--black);
+    }
+
     &.link:hover {
         transform: translateY(.5rem);
     }
